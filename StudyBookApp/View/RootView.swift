@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  StudyBookApp
 //
 //  Created by t&a on 2024/11/02.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    RootView()
 }

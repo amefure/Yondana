@@ -1,0 +1,18 @@
+# ローカリゼーション(多言語対応)用Stringファイル
+strings:
+  inputs:
+      - StudyBookApp/Resources/ja.lproj/Localizable.strings
+  # テンプレート指定と保存先
+  outputs:
+    - templateName: structured-swift5
+      output: StudyBookApp/Generated/Strings.swift
+# 画像やカラーコードなどのAssetsリソース
+xcassets:
+  # 画像やカラーなど
+  inputs:
+    - StudyBookApp/Resources/Images.xcassets
+    - StudyBookApp/Resources/Colors.xcassets
+  # テンプレート指定と保存先
+  outputs:
+    - templateName: swift5
+      output: StudyBookApp/Generated/Assets.swift

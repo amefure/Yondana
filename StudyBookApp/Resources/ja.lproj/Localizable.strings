@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  StudyBookApp
+
+  Created by t&a on 2024/11/02.
+  
+*/
+
+// MARK: - Loacle
+"date_locale" = "ja_JP";
+"date_timezone" = "Asia/Tokyo";

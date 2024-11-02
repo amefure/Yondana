@@ -6,34 +6,165 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXFileReference section */
-		126B41432CD66D1D00ECAE88 /* StudyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
+/* Begin PBXBuildFile section */
+		0168554042E099E8F235D2B7 /* Pods_StudyBookApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1276D96CAE976ACC5DF2DD5C /* Pods_StudyBookApp.framework */; };
+		1221EC552CD6749C00F2A6E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1221EC422CD6749C00F2A6E7 /* Preview Assets.xcassets */; };
+		1221EC562CD6749C00F2A6E7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1221EC482CD6749C00F2A6E7 /* Colors.xcassets */; };
+		1221EC572CD6749C00F2A6E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1221EC492CD6749C00F2A6E7 /* Images.xcassets */; };
+		1221EC582CD6749C00F2A6E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1221EC4B2CD6749C00F2A6E7 /* Localizable.strings */; };
+		1221EC592CD6749C00F2A6E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1221EC522CD6749C00F2A6E7 /* GoogleService-Info.plist */; };
+		1221EC5B2CD6749C00F2A6E7 /* DateFormatUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC392CD6749C00F2A6E7 /* DateFormatUtility.swift */; };
+		1221EC5C2CD6749C00F2A6E7 /* DeviceSizeUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC3A2CD6749C00F2A6E7 /* DeviceSizeUtility.swift */; };
+		1221EC5D2CD6749C00F2A6E7 /* ExCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC3B2CD6749C00F2A6E7 /* ExCollection.swift */; };
+		1221EC5E2CD6749C00F2A6E7 /* ExUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC3C2CD6749C00F2A6E7 /* ExUIApplication.swift */; };
+		1221EC5F2CD6749C00F2A6E7 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC3E2CD6749C00F2A6E7 /* Assets.swift */; };
+		1221EC602CD6749C00F2A6E7 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC3F2CD6749C00F2A6E7 /* Strings.swift */; };
+		1221EC612CD6749C00F2A6E7 /* RepositoryDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC442CD6749C00F2A6E7 /* RepositoryDependency.swift */; };
+		1221EC622CD6749C00F2A6E7 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC462CD6749C00F2A6E7 /* UserDefaultsRepository.swift */; };
+		1221EC632CD6749C00F2A6E7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC4D2CD6749C00F2A6E7 /* RootView.swift */; };
+		1221EC642CD6749C00F2A6E7 /* StudyBookAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC4E2CD6749C00F2A6E7 /* StudyBookAppApp.swift */; };
+		1221EC652CD6749C00F2A6E7 /* RootEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221EC502CD6749C00F2A6E7 /* RootEnvironment.swift */; };
+/* End PBXBuildFile section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		126B41452CD66D1D00ECAE88 /* StudyBookApp */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StudyBookApp;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
+/* Begin PBXFileReference section */
+		1221EC392CD6749C00F2A6E7 /* DateFormatUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatUtility.swift; sourceTree = "<group>"; };
+		1221EC3A2CD6749C00F2A6E7 /* DeviceSizeUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSizeUtility.swift; sourceTree = "<group>"; };
+		1221EC3B2CD6749C00F2A6E7 /* ExCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExCollection.swift; sourceTree = "<group>"; };
+		1221EC3C2CD6749C00F2A6E7 /* ExUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIApplication.swift; sourceTree = "<group>"; };
+		1221EC3E2CD6749C00F2A6E7 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		1221EC3F2CD6749C00F2A6E7 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		1221EC422CD6749C00F2A6E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1221EC442CD6749C00F2A6E7 /* RepositoryDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDependency.swift; sourceTree = "<group>"; };
+		1221EC462CD6749C00F2A6E7 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
+		1221EC482CD6749C00F2A6E7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		1221EC492CD6749C00F2A6E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1221EC4A2CD6749C00F2A6E7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1221EC4D2CD6749C00F2A6E7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1221EC4E2CD6749C00F2A6E7 /* StudyBookAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyBookAppApp.swift; sourceTree = "<group>"; };
+		1221EC502CD6749C00F2A6E7 /* RootEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootEnvironment.swift; sourceTree = "<group>"; };
+		1221EC522CD6749C00F2A6E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1221EC532CD6749C00F2A6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		126B41432CD66D1D00ECAE88 /* StudyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1276D96CAE976ACC5DF2DD5C /* Pods_StudyBookApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBookApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D3427250F7F2DA536D95CFF /* Pods-StudyBookApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBookApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp.debug.xcconfig"; sourceTree = "<group>"; };
+		61282778142ED6D48B139B06 /* Pods-StudyBookApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBookApp.release.xcconfig"; path = "Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		126B41402CD66D1D00ECAE88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0168554042E099E8F235D2B7 /* Pods_StudyBookApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1221EC3D2CD6749C00F2A6E7 /* Extension&Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC392CD6749C00F2A6E7 /* DateFormatUtility.swift */,
+				1221EC3A2CD6749C00F2A6E7 /* DeviceSizeUtility.swift */,
+				1221EC3B2CD6749C00F2A6E7 /* ExCollection.swift */,
+				1221EC3C2CD6749C00F2A6E7 /* ExUIApplication.swift */,
+			);
+			path = "Extension&Utility";
+			sourceTree = "<group>";
+		};
+		1221EC402CD6749C00F2A6E7 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC3E2CD6749C00F2A6E7 /* Assets.swift */,
+				1221EC3F2CD6749C00F2A6E7 /* Strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		1221EC412CD6749C00F2A6E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1221EC432CD6749C00F2A6E7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC422CD6749C00F2A6E7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1221EC452CD6749C00F2A6E7 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC442CD6749C00F2A6E7 /* RepositoryDependency.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		1221EC472CD6749C00F2A6E7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC452CD6749C00F2A6E7 /* DI */,
+				1221EC462CD6749C00F2A6E7 /* UserDefaultsRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1221EC4C2CD6749C00F2A6E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC482CD6749C00F2A6E7 /* Colors.xcassets */,
+				1221EC492CD6749C00F2A6E7 /* Images.xcassets */,
+				1221EC4B2CD6749C00F2A6E7 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1221EC4F2CD6749C00F2A6E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC4D2CD6749C00F2A6E7 /* RootView.swift */,
+				1221EC4E2CD6749C00F2A6E7 /* StudyBookAppApp.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1221EC512CD6749C00F2A6E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC502CD6749C00F2A6E7 /* RootEnvironment.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1221EC542CD6749C00F2A6E7 /* StudyBookApp */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC532CD6749C00F2A6E7 /* Info.plist */,
+				1221EC522CD6749C00F2A6E7 /* GoogleService-Info.plist */,
+				1221EC402CD6749C00F2A6E7 /* Generated */,
+				1221EC4C2CD6749C00F2A6E7 /* Resources */,
+				1221EC3D2CD6749C00F2A6E7 /* Extension&Utility */,
+				1221EC4F2CD6749C00F2A6E7 /* View */,
+				1221EC412CD6749C00F2A6E7 /* Model */,
+				1221EC512CD6749C00F2A6E7 /* ViewModel */,
+				1221EC472CD6749C00F2A6E7 /* Repository */,
+				1221EC432CD6749C00F2A6E7 /* Preview Content */,
+			);
+			path = StudyBookApp;
+			sourceTree = "<group>";
+		};
 		126B413A2CD66D1D00ECAE88 = {
 			isa = PBXGroup;
 			children = (
-				126B41452CD66D1D00ECAE88 /* StudyBookApp */,
+				1221EC542CD6749C00F2A6E7 /* StudyBookApp */,
 				126B41442CD66D1D00ECAE88 /* Products */,
+				1A512316DB7C76F3075A0EA2 /* Pods */,
+				609E9DB8FB98EEDBEC641E8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -45,6 +176,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1A512316DB7C76F3075A0EA2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D3427250F7F2DA536D95CFF /* Pods-StudyBookApp.debug.xcconfig */,
+				61282778142ED6D48B139B06 /* Pods-StudyBookApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		609E9DB8FB98EEDBEC641E8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1276D96CAE976ACC5DF2DD5C /* Pods_StudyBookApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -52,20 +200,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 126B41512CD66D1F00ECAE88 /* Build configuration list for PBXNativeTarget "StudyBookApp" */;
 			buildPhases = (
+				80DAF46CA1018DF452A3CDE2 /* [CP] Check Pods Manifest.lock */,
 				126B413F2CD66D1D00ECAE88 /* Sources */,
 				126B41402CD66D1D00ECAE88 /* Frameworks */,
 				126B41412CD66D1D00ECAE88 /* Resources */,
+				5256FA7BDDDEE6D3A478EECB /* [CP] Embed Pods Frameworks */,
+				C229E3A5105F6A16FB5D2C66 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				126B41452CD66D1D00ECAE88 /* StudyBookApp */,
-			);
 			name = StudyBookApp;
-			packageProductDependencies = (
-			);
 			productName = StudyBookApp;
 			productReference = 126B41432CD66D1D00ECAE88 /* StudyBookApp.app */;
 			productType = "com.apple.product-type.application";
@@ -86,11 +232,12 @@
 				};
 			};
 			buildConfigurationList = 126B413E2CD66D1D00ECAE88 /* Build configuration list for PBXProject "StudyBookApp" */;
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 126B413A2CD66D1D00ECAE88;
 			minimizedProjectReferenceProxies = 1;
@@ -109,20 +256,106 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1221EC552CD6749C00F2A6E7 /* Preview Assets.xcassets in Resources */,
+				1221EC562CD6749C00F2A6E7 /* Colors.xcassets in Resources */,
+				1221EC572CD6749C00F2A6E7 /* Images.xcassets in Resources */,
+				1221EC582CD6749C00F2A6E7 /* Localizable.strings in Resources */,
+				1221EC592CD6749C00F2A6E7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5256FA7BDDDEE6D3A478EECB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80DAF46CA1018DF452A3CDE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StudyBookApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C229E3A5105F6A16FB5D2C66 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		126B413F2CD66D1D00ECAE88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1221EC5B2CD6749C00F2A6E7 /* DateFormatUtility.swift in Sources */,
+				1221EC5C2CD6749C00F2A6E7 /* DeviceSizeUtility.swift in Sources */,
+				1221EC5D2CD6749C00F2A6E7 /* ExCollection.swift in Sources */,
+				1221EC5E2CD6749C00F2A6E7 /* ExUIApplication.swift in Sources */,
+				1221EC5F2CD6749C00F2A6E7 /* Assets.swift in Sources */,
+				1221EC602CD6749C00F2A6E7 /* Strings.swift in Sources */,
+				1221EC612CD6749C00F2A6E7 /* RepositoryDependency.swift in Sources */,
+				1221EC622CD6749C00F2A6E7 /* UserDefaultsRepository.swift in Sources */,
+				1221EC632CD6749C00F2A6E7 /* RootView.swift in Sources */,
+				1221EC642CD6749C00F2A6E7 /* StudyBookAppApp.swift in Sources */,
+				1221EC652CD6749C00F2A6E7 /* RootEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1221EC4B2CD6749C00F2A6E7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1221EC4A2CD6749C00F2A6E7 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		126B414F2CD66D1F00ECAE88 /* Debug */ = {
@@ -246,6 +479,7 @@
 		};
 		126B41522CD66D1F00ECAE88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D3427250F7F2DA536D95CFF /* Pods-StudyBookApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -254,12 +488,15 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StudyBookApp/Preview Content\"";
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StudyBookApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -267,14 +504,19 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.StudyBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		126B41532CD66D1F00ECAE88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61282778142ED6D48B139B06 /* Pods-StudyBookApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -283,12 +525,15 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StudyBookApp/Preview Content\"";
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StudyBookApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,9 +541,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.StudyBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
