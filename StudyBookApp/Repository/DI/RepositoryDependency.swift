@@ -6,7 +6,23 @@
 //
 
 import UIKit
-
+/// `Repository` クラスのDIクラス
 class RepositoryDependency {
+    
+    /// `Repository`
+    public let realmRepository: RealmRepository
+    public let userDefaultsRepository: UserDefaultsRepository
+    public let googleBooksAPIRepository: GoogleBooksAPIRepository
+    
+    //　シングルトンインスタンスをここで保持する
+    private static let sharedRealmRepository = RealmRepository()
+    private static let sharedUserDefaultsRepository = UserDefaultsRepository()
+    private static let sharedGoogleBooksAPIRepository = GoogleBooksAPIRepository()
 
+    init() {
+        realmRepository = RepositoryDependency.sharedRealmRepository
+        userDefaultsRepository = RepositoryDependency.sharedUserDefaultsRepository
+        googleBooksAPIRepository = RepositoryDependency.sharedGoogleBooksAPIRepository
+    }
 }
+
