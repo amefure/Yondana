@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import RealmSwift
 
 /// アプリ内で共通で利用される状態や環境値を保持する
 class RootEnvironment: ObservableObject {
@@ -74,6 +75,14 @@ extension RootEnvironment {
         category.name = name
         category.memo = memo
         realmRepository.createObject(category)
+        readAllCategorys()
+    }
+    
+    public func updateCategory(categoryId: ObjectId, name: String, memo: String) {
+        realmRepository.updateObject(Category.self, id: categoryId) { category in
+            category.name = name
+            category.memo = memo
+        }
         readAllCategorys()
     }
     

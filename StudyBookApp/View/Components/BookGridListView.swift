@@ -9,39 +9,58 @@ import SwiftUI
 
 struct BookGridListView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
+    public var category: Category? = nil
     private let columns = Array(repeating: GridItem(.fixed(DeviceSizeUtility.deviceWidth / 4 - 20)), count: 4)
   
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns) {
-                ForEach(rootEnvironment.books) { book in
-                    NavigationLink {
-                        //DetailBookView(book: book)
-                        Text(book.title)
-                    } label: {
-                        if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
-                            image
-                                .resizable()
-                                .shadow(color: .gray, radius: 3, x: 4, y: 4)
-                                .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
-                        } else {
+        VStack {
+            if let category = category {
+                HeaderView(
+                    leadingIcon: "chevron.backward",
+                    leadingAction: {
+                        dismiss()
+                    },
+                    content: {
+                        Text(category.name)
+                            .font(.system(size: 20))
+                            .lineLimit(1)
+                    }
+                )
+            }
+            
+            
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(rootEnvironment.books) { book in
+                        NavigationLink {
+                            //DetailBookView(book: book)
                             Text(book.title)
-                                .fontWeight(.bold)
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                                .padding(5)
-                                .frame(minWidth: DeviceSizeUtility.deviceWidth / 4 - 20)
-                                .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
-                                .frame(maxHeight: DeviceSizeUtility.isSESize ? 100 : 120)
-                                .background(.white)
-                                .clipped()
-                                .shadow(color: .gray, radius: 3, x: 4, y: 4)
+                        } label: {
+                            if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
+                                image
+                                    .resizable()
+                                    .shadow(color: .gray, radius: 3, x: 4, y: 4)
+                                    .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
+                            } else {
+                                Text(book.title)
+                                    .fontWeight(.bold)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                    .padding(5)
+                                    .frame(minWidth: DeviceSizeUtility.deviceWidth / 4 - 20)
+                                    .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
+                                    .frame(maxHeight: DeviceSizeUtility.isSESize ? 100 : 120)
+                                    .background(.white)
+                                    .clipped()
+                                    .shadow(color: .gray, radius: 3, x: 4, y: 4)
+                            }
                         }
                     }
                 }
+                Spacer()
             }
-            Spacer()
-        }
+        }.navigationBarBackButtonHidden()
     }
 }
 

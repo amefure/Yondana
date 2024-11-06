@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InputCategoryView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
-    
+    public var category: Category? = nil
     @State private var name = ""
     @State private var memo = ""
     @Environment(\.dismiss) private var dismiss
@@ -22,45 +22,56 @@ struct InputCategoryView: View {
                     dismiss()
                 },
                 content: {
-                    Text("設定")
+                    Text(category == nil ? "カテゴリ登録": "カテゴリ編集")
                 }
             )
             
-            VStack {
+            VStack(alignment: .leading) {
                 Text("カテゴリ名")
+                    .fontWeight(.bold)
                 TextField("", text: $name)
                     .font(.system(size: 20, weight: .bold))
                     .padding(10)
-                    .background(.themaBlack)
-                    .foregroundStyle(.white)
-                    .cornerRadius(8)
+                    .roundedRectangleShadowBackView(height: 50)
+                    .padding(.bottom)
+                
                 
                 Text("MEMO")
+                    .fontWeight(.bold)
                 TextEditor(text: $memo)
-                    .font(.system(size: 20, weight: .bold))
-                    .padding(10)
-                    .background(.themaBlack)
-                    .foregroundStyle(.white)
-                    .cornerRadius(8)
-                
-                Button {
-                    guard !name.isEmpty && !memo.isEmpty else { return }
-                    rootEnvironment.createCategory(name: name, memo: memo)
-                    dismiss()
-                } label: {
-                    Text("登録")
-                        .frame(width: 200, height: 80)
-                        .font(.system(size: 20, weight: .bold))
-                        .padding(10)
-                        .background(.themaBlack)
-                        .foregroundStyle(.white)
-                        .cornerRadius(8)
-                }
-                
+                    .font(.system(size: 17, weight: .bold))
+                    .frame(height: 150)
+                    .roundedRectangleShadowBackView(height: 150)
             }.padding()
            
+            Button {
+                guard !name.isEmpty else { return }
+                if let category = category {
+                    rootEnvironment.updateCategory(categoryId: category.id, name: name, memo: memo)
+                } else {
+                    rootEnvironment.createCategory(name: name, memo: memo)
+                }
+                
+                dismiss()
+            } label: {
+                Text(category == nil ? "登録": "更新")
+                    .frame(width: 150, height: 30)
+                    .font(.system(size: 17, weight: .bold))
+                    .padding(8)
+                    .background(.themaBlack)
+                    .foregroundStyle(.white)
+                    .fontWeight(.bold)
+                    .cornerRadius(8)
+            }
+            
             Spacer()
-        }
+           
+        }.foregroundStyle(.exText)
+            .onAppear {
+                guard let category = category else { return }
+                name = category.name
+                memo = category.memo
+            }
     }
 }
 

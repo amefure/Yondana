@@ -26,6 +26,15 @@ class RealmRepository {
         }
     }
     
+    /// Update
+    public func updateObject<T: Object>(_ objectType: T.Type, id: ObjectId, updateBlock: @escaping (T) -> Void) {
+        guard let obj = realm.object(ofType: objectType, forPrimaryKey: id) else { return }
+        try? realm.write {
+            updateBlock(obj)
+        }
+    }
+
+    
     /// Read
     public func readAllObjs<T: Object>() -> Array<T> {
         let objs = realm.objects(T.self)
