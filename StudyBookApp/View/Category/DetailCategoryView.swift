@@ -21,8 +21,6 @@ struct DetailCategoryView: View {
                 leadingIcon: "chevron.backward",
                 trailingIcon: "square.and.pencil",
                 leadingAction: {
-                    // 画面を戻る際に書籍をリロード
-                    rootEnvironment.readAllBooks()
                     presentationMode.wrappedValue.dismiss()
                 },
                 trailingAction: {
@@ -62,7 +60,7 @@ struct DetailCategoryView: View {
             } label: {
                 HStack {
                     Spacer()
-                    Text("書籍一覧：\(rootEnvironment.books.count)冊")
+                    Text("書籍一覧：\(category.books.count)冊")
                         .font(.system(size: 17))
                     
                     Image(systemName: "chevron.forward")
@@ -82,10 +80,10 @@ struct DetailCategoryView: View {
                 } else {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 15) {
-                            ForEach(rootEnvironment.books) { book in
+                            ForEach(category.books) { book in
                                 NavigationLink {
-                                    //DetailBookView(book: book)
-                                    Text(book.title)
+                                    DetailBookView(book: book)
+                                        .environmentObject(rootEnvironment)
                                 } label: {
                                     if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
                                         image
@@ -114,7 +112,7 @@ struct DetailCategoryView: View {
                 .padding(.horizontal)
                 
         
-            Text("\(rootEnvironment.books.count)冊")
+            Text("\(category.books.count)冊")
                 .roundedRectangleShadowBackView(height: 80)
             
             Spacer()
@@ -122,8 +120,6 @@ struct DetailCategoryView: View {
             
         }.foregroundStyle(.exText)
             .navigationBarBackButtonHidden()
-            .onAppear { rootEnvironment.filteringAllBooks(categoryId: category.id.stringValue) }
-            .onDisappear {  }
             .fullScreenCover(isPresented: $showEditView) {
                 InputCategoryView(category: category)
                     .environmentObject(rootEnvironment)

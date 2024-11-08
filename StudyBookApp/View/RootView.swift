@@ -10,30 +10,36 @@ import SwiftUI
 struct RootView: View {
     @ObservedObject private var rootEnvironment = RootEnvironment()
 
-    @State private var mode: Bool = false
+    @State private var mode: Bool = true
     var body: some View {
         VStack {
             
-            Button {
-                mode.toggle()
-            } label: {
-                Text("MODE")
-            }
-            
-//            TabViewLayout(selectTab: $selectTab) {
-//                
-//                switch selectTab {
-//                case 0:
-//                    CategoryListView()
-//                        .environmentObject(rootEnvironment)
-//                case 1:
-//                    MyBookShelfView()
-//                        .environmentObject(rootEnvironment)
-//                default:
-//                    MyBookShelfView()
-//                        .environmentObject(rootEnvironment)
-//                }
-//            }
+            HStack {
+                
+                Button {
+                    mode.toggle()
+                } label: {
+                    Image(systemName: mode ? "folder" : "rectangle.grid.3x2")
+                        .fontL(bold: true)
+                        .foregroundStyle(.themaBlack)
+                }
+                
+                Spacer()
+                
+                Text(mode ? "BOOKS" : "CATEGORYS")
+                    .fontL(bold: true)
+                    .foregroundStyle(.themaBlack)
+                Spacer()
+          
+                NavigationLink {
+                    
+                } label: {
+                    Image(systemName: "gearshape")
+                        .fontL(bold: true)
+                        .foregroundStyle(.themaBlack)
+                }
+            }.padding(.horizontal, 30)
+                .padding(.vertical, 10)
             if mode  {
                 MyBookShelfView()
                     .environmentObject(rootEnvironment)
@@ -41,9 +47,6 @@ struct RootView: View {
                 CategoryListView()
                     .environmentObject(rootEnvironment)
             }
-            
-    
-            
            
         }.onAppear { rootEnvironment.onAppear() }
             .onDisappear { rootEnvironment.onDisappear() }

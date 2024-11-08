@@ -43,7 +43,6 @@ class SearchBooksViewModel: ObservableObject {
     }
 
     public func onAppear(isSaveBooks: [Book]) {
-        print("--onAppear")
         isSaveIds = isSaveBooks.map(\.id)
         
         googleBooksAPIRepository.books.sink { [weak self] books in
@@ -55,7 +54,6 @@ class SearchBooksViewModel: ObservableObject {
     }
     
     public func onDisappear() {
-        print("--onDisappear")
         cancellables.forEach { $0.cancel() }
         books = []
         stopLoading()

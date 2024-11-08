@@ -7,7 +7,7 @@
 
 extension String {
     public func toInt() -> Int {
-        guard let num = Int(self) else { return 0 }
+        guard let num = Int(self) else { return -1 }
         return num
     }
 }

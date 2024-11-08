@@ -20,11 +20,17 @@ class RootEnvironment: ObservableObject {
     
     init(repositoryDependency: RepositoryDependency = RepositoryDependency()) {
         realmRepository = repositoryDependency.realmRepository
+        
+        // 未選択カテゴリが存在しないなら
+        if !hasCategory(categoryId: Category.unSelectCategry.id) {
+            // アプリ起動時に未選択用のカテゴリを保存する
+            realmRepository.createObject(Category.unSelectCategry)
+        }
+        
     }
     
     public func onAppear() {
-        readAllBooks()
-        readAllCategorys()
+        fetchAllData()
     }
     
     public func onDisappear() {
@@ -37,23 +43,24 @@ extension RootEnvironment {
     
     // MARK: Book
     public func createBook(_ book: Book) {
-        guard let url = book.secureThumbnailUrl else { return }
+        guard let url = book.secureThumbnailUrl else {
+            // URLがない場合でもローカル保存は実行
+            addBookInCategory(categoryId: book.categoryId, book: book)
+            return
+        }
         /// ローカルにサムネイル画像を保存する
         AppManager.sharedImageFileManager.savingImage(name: book.id, urlStr: url.absoluteString)
             .sink { _ in } receiveValue: { [weak self] _ in
-                self?.realmRepository.createObject(book)
-                self?.readAllBooks()
+                guard let self else { return }
+                // 成功してからローカルに保存する
+                self.addBookInCategory(categoryId: book.categoryId, book: book)
             }.store(in: &cancellables)
     
     }
     
     public func filteringAllBooks(categoryId: String) {
         books = realmRepository.readAllObjs()
-        books = books.filter { $0.categoryId == categoryId}
-    }
-    
-    public func readAllBooks() {
-        books = realmRepository.readAllObjs()
+        //books = books.filter { $0.categoryId == categoryId}
     }
     
     public func updateBook(id: String, book: Book) {
@@ -62,7 +69,6 @@ extension RootEnvironment {
     
     public func deleteBook(_ book: Book) {
         realmRepository.removeObjs(list: [book])
-        readAllBooks()
     }
     
     public func deleteAllBooks() {
@@ -75,7 +81,7 @@ extension RootEnvironment {
         category.name = name
         category.memo = memo
         realmRepository.createObject(category)
-        readAllCategorys()
+        fetchAllData()
     }
     
     public func updateCategory(categoryId: ObjectId, name: String, memo: String) {
@@ -83,17 +89,31 @@ extension RootEnvironment {
             category.name = name
             category.memo = memo
         }
-        readAllCategorys()
+        fetchAllData()
     }
     
-    public func readAllCategorys() {
+    public func addBookInCategory(categoryId: ObjectId, book: Book) {
+        realmRepository.updateObject(Category.self, id: categoryId) { category in
+            category.books.append(book)
+        }
+        fetchAllData()
+    }
+    
+    
+    public func hasCategory(categoryId: ObjectId) -> Bool {
+        let categorys: [Category] = realmRepository.readAllObjs()
+        return categorys.contains(where: { $0.id == categoryId })
+    }
+    
+    public func fetchAllData() {
         categorys = realmRepository.readAllObjs()
+        books = categorys.flatMap({ $0.books })
     }
     
     
     public func deleteCategory(_ category: Category) {
         realmRepository.removeObjs(list: [category])
-        readAllCategorys()
+        fetchAllData()
     }
     
     public func deleteCategorys() {

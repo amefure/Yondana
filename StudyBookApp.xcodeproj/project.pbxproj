@@ -48,6 +48,7 @@
 		1252FDEA2CDA5949007D23B9 /* DetailCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDE92CDA5948007D23B9 /* DetailCategoryView.swift */; };
 		1252FDEC2CDA5AE9007D23B9 /* BookGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */; };
 		1252FDEE2CDA5BC7007D23B9 /* ExModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDED2CDA5BC7007D23B9 /* ExModifier.swift */; };
+		128857692CDE162500703F49 /* DetailBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128857682CDE162500703F49 /* DetailBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		1252FDED2CDA5BC7007D23B9 /* ExModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExModifier.swift; sourceTree = "<group>"; };
 		126B41432CD66D1D00ECAE88 /* StudyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1276D96CAE976ACC5DF2DD5C /* Pods_StudyBookApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBookApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		128857682CDE162500703F49 /* DetailBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookView.swift; sourceTree = "<group>"; };
 		4D3427250F7F2DA536D95CFF /* Pods-StudyBookApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBookApp.debug.xcconfig"; path = "Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp.debug.xcconfig"; sourceTree = "<group>"; };
 		61282778142ED6D48B139B06 /* Pods-StudyBookApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBookApp.release.xcconfig"; path = "Target Support Files/Pods-StudyBookApp/Pods-StudyBookApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,12 +115,8 @@
 		1221EC3D2CD6749C00F2A6E7 /* Extension&Utility */ = {
 			isa = PBXGroup;
 			children = (
-				1221EC392CD6749C00F2A6E7 /* DateFormatUtility.swift */,
-				1221EC3A2CD6749C00F2A6E7 /* DeviceSizeUtility.swift */,
-				1221EC3B2CD6749C00F2A6E7 /* ExCollection.swift */,
-				1252FDED2CDA5BC7007D23B9 /* ExModifier.swift */,
-				1252FDE72CDA5067007D23B9 /* ExString.swift */,
-				1221EC3C2CD6749C00F2A6E7 /* ExUIApplication.swift */,
+				12DD8CBF2CDE470E00761FE6 /* Utility */,
+				12DD8CBE2CDE46F700761FE6 /* Extenstion */,
 			);
 			path = "Extension&Utility";
 			sourceTree = "<group>";
@@ -186,6 +184,7 @@
 				1221EC4E2CD6749C00F2A6E7 /* StudyBookAppApp.swift */,
 				1221EC4D2CD6749C00F2A6E7 /* RootView.swift */,
 				1221ECC42CD8AC8700F2A6E7 /* MyBookShelfView.swift */,
+				128857682CDE162500703F49 /* DetailBookView.swift */,
 				1221ECBF2CD7CEFC00F2A6E7 /* Category */,
 				1221ECBE2CD7CEEC00F2A6E7 /* SerachBooksView */,
 				1221ECB82CD7CC9700F2A6E7 /* Components */,
@@ -302,6 +301,26 @@
 				126B41432CD66D1D00ECAE88 /* StudyBookApp.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		12DD8CBE2CDE46F700761FE6 /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+				1252FDED2CDA5BC7007D23B9 /* ExModifier.swift */,
+				1252FDE72CDA5067007D23B9 /* ExString.swift */,
+				1221EC3B2CD6749C00F2A6E7 /* ExCollection.swift */,
+				1221EC3C2CD6749C00F2A6E7 /* ExUIApplication.swift */,
+			);
+			path = Extenstion;
+			sourceTree = "<group>";
+		};
+		12DD8CBF2CDE470E00761FE6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1221EC3A2CD6749C00F2A6E7 /* DeviceSizeUtility.swift */,
+				1221EC392CD6749C00F2A6E7 /* DateFormatUtility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		1A512316DB7C76F3075A0EA2 /* Pods */ = {
@@ -490,6 +509,7 @@
 				1221EC652CD6749C00F2A6E7 /* RootEnvironment.swift in Sources */,
 				1221ECC72CD8AD6400F2A6E7 /* MyBookShelfViewModel.swift in Sources */,
 				1221ECA62CD7368D00F2A6E7 /* RelamRepository.swift in Sources */,
+				128857692CDE162500703F49 /* DetailBookView.swift in Sources */,
 				1252FDE82CDA506B007D23B9 /* ExString.swift in Sources */,
 				1221ECAB2CD7586A00F2A6E7 /* SearchBooksView.swift in Sources */,
 				1221ECC92CD8FB4000F2A6E7 /* HeaderView.swift in Sources */,

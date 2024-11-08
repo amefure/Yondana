@@ -9,36 +9,28 @@ import SwiftUI
 
 struct CategoryListView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
-    private let columns = Array(repeating: GridItem(.fixed(DeviceSizeUtility.deviceWidth / 2 - 20)), count: 2)
-    
     @State private var showSearchView = false
     
     var body: some View {
         VStack {
             ZStack(alignment: .bottomTrailing) {
-                ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(rootEnvironment.categorys) { category in
-                            NavigationLink {
-                                DetailCategoryView(category: category)
-                                    .environmentObject(rootEnvironment)
-                            } label: {
-                                VStack {
-                                    Text(category.name)
-                                        .frame(width: DeviceSizeUtility.deviceWidth / 2 - 20, height: 80)
-                                        .font(.system(size: 20, weight: .bold))
-                                        .background(.themaBlack)
-                                        .foregroundStyle(.white)
-                                        .cornerRadius(8)
-                                    
-                                    
-                                }
-                               
-                            }
+                List {
+                    ForEach(rootEnvironment.categorys.filter({ $0.id != Category.unSelectCategryID})) { category in
+                        NavigationLink {
+                            DetailCategoryView(category: category)
+                                .environmentObject(rootEnvironment)
+                        } label: {
+                            HStack {
+                                Image(systemName: "folder")
+                                    .fontM(bold: true)
+                                Text(category.name)
+                                    .fontL(bold: true)
+                            }.foregroundStyle(.white)
                         }
-                    }
-                    Spacer()
-                }
+                    }.listRowBackground(Color.themaBlack)
+                }.scrollContentBackground(.hidden)
+                    .background(.white)
+                    .listStyle(.grouped)
                 
                 Button {
                     showSearchView = true
@@ -67,4 +59,5 @@ struct CategoryListView: View {
 
 #Preview {
     CategoryListView()
+        .environmentObject(RootEnvironment())
 }

@@ -13,7 +13,12 @@ struct BookThumbnailView: View {
     public let height: CGFloat
     var body: some View {
         // 本のサムネイル
-        if let url = book.secureThumbnailUrl {
+        if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
+            image
+                .resizable()
+                .frame(width: width, height: height)
+                .shadow(color: .gray, radius: 3, x: 4, y: 4)
+        } else if let url = book.secureThumbnailUrl {
             AsyncImage(url: url) { image in
                 image.resizable()
             } placeholder: {

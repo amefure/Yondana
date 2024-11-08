@@ -28,8 +28,10 @@ struct InputCategoryView: View {
             
             VStack(alignment: .leading) {
                 Text("カテゴリ名")
-                    .fontWeight(.bold)
-                TextField("", text: $name)
+                    .foregroundStyle(.exText)
+                    .font(.system(size: 17, weight: .bold))
+                  
+                TextField("〇〇試験...", text: $name)
                     .font(.system(size: 20, weight: .bold))
                     .padding(10)
                     .roundedRectangleShadowBackView(height: 50)
@@ -37,7 +39,9 @@ struct InputCategoryView: View {
                 
                 
                 Text("MEMO")
-                    .fontWeight(.bold)
+                    .foregroundStyle(.exText)
+                    .font(.system(size: 17, weight: .bold))
+                  
                 TextEditor(text: $memo)
                     .font(.system(size: 17, weight: .bold))
                     .frame(height: 150)

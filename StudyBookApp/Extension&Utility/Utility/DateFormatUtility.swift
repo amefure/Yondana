@@ -12,7 +12,7 @@ class DateFormatUtility {
     private let df = DateFormatter()
     private var c = Calendar(identifier: .gregorian)
     
-    init(format: String = "yyyy-MM-dd") {
+    init(format: String = "yyyy年M月d日") {
         df.dateFormat = format
         df.locale = Locale(identifier: L10n.dateLocale)
         if Locale.current.identifier.hasPrefix(Locale(identifier: L10n.dateLocale).identifier) {

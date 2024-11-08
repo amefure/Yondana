@@ -36,7 +36,7 @@ class Book: Object, Identifiable {
     /// 並び順
     @Persisted var createdAt: Date
     /// 並び順
-    @Persisted var categoryId: String?
+    @Persisted var categoryId: ObjectId
 
     /// サムネイルURLをセキュアなURLに変換
     public var secureThumbnailUrl: URL? {
@@ -62,7 +62,10 @@ class Book: Object, Identifiable {
     
     static func demoBook() -> Book {
         let book = Book()
-        return book 
+        book.title = "Swift UIを触ってみよう"
+        book.amount = 2000
+        book.memo = "ここにテキストここにテキストここにテキスト\nここにテキストここにテキスト"
+        return book
 
     }
     

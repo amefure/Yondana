@@ -56,21 +56,26 @@ struct SearchBooksView: View {
     private func searchTextFieldView() -> some View {
         HStack {
             TextField("タイトル/著者/ISBN...で検索", text: $keyword)
-                .font(.system(size: 20, weight: .bold))
-                .padding(10)
-                .background(.themaBlack)
-                .foregroundStyle(.white)
-                .cornerRadius(8)
+                .fontL(bold: true)
+                .foregroundStyle(.exText)
+                .roundedRectangleShadowBackView(width: DeviceSizeUtility.deviceWidth - 70, height: 50)
+                
             Button {
-                print("---", keyword)
                 guard !keyword.isEmpty else { return }
                 viewModel.fetchBooks(keyword: keyword)
             } label: {
                 Image(systemName: "magnifyingglass")
-                    .foregroundColor(.white)
-                    .padding(10)
+                    .frame(width: 40, height: 40)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
                     .background(.themaBlack)
-                    .cornerRadius(20)
+                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke(style: StrokeStyle(lineWidth: 2))
+                            .foregroundColor(.white)
+                            
+                    }.shadow(color: .gray, radius: 1, x: 1, y: 1)
             }
         }.transition(.scale)
             .padding()

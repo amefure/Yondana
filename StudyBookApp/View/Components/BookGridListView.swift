@@ -32,10 +32,10 @@ struct BookGridListView: View {
             
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(rootEnvironment.books) { book in
+                    ForEach(category == nil ? rootEnvironment.books : Array(category!.books)) { book in
                         NavigationLink {
-                            //DetailBookView(book: book)
-                            Text(book.title)
+                            DetailBookView(book: book)
+                                .environmentObject(rootEnvironment)
                         } label: {
                             if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
                                 image
