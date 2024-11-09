@@ -26,7 +26,7 @@ struct RootView: View {
                 
                 Spacer()
                 
-                Text(mode ? "BOOKS" : "CATEGORYS")
+                Text(mode ? "ALL BOOKS" : "CATEGORYS")
                     .fontL(bold: true)
                     .foregroundStyle(.themaBlack)
                 Spacer()

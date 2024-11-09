@@ -11,6 +11,10 @@ struct BookGridListView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
     public var category: Category? = nil
     private let columns = Array(repeating: GridItem(.fixed(DeviceSizeUtility.deviceWidth / 4 - 20)), count: 4)
+    
+    private var books: [Book] {
+        return category == nil ? rootEnvironment.books : Array(category!.books)
+    }
   
     @Environment(\.dismiss) private var dismiss
     var body: some View {
@@ -29,39 +33,43 @@ struct BookGridListView: View {
                 )
             }
             
-            
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(category == nil ? rootEnvironment.books : Array(category!.books)) { book in
-                        NavigationLink {
-                            DetailBookView(book: book)
-                                .environmentObject(rootEnvironment)
-                        } label: {
-                            if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
-                                image
-                                    .resizable()
-                                    .shadow(color: .gray, radius: 3, x: 4, y: 4)
-                                    .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
-                            } else {
-                                Text(book.title)
-                                    .fontWeight(.bold)
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                    .padding(5)
-                                    .frame(minWidth: DeviceSizeUtility.deviceWidth / 4 - 20)
-                                    .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
-                                    .frame(maxHeight: DeviceSizeUtility.isSESize ? 100 : 120)
-                                    .background(.white)
-                                    .clipped()
-                                    .shadow(color: .gray, radius: 3, x: 4, y: 4)
-                            }
-                        }.simultaneousGesture(TapGesture().onEnded {
-                            rootEnvironment.currentBook = book
-                        })
+            if !books.isEmpty {
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(books) { book in
+                            NavigationLink {
+                                DetailBookView(book: book)
+                                    .environmentObject(rootEnvironment)
+                            } label: {
+                                if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
+                                    image
+                                        .resizable()
+                                        .shadow(color: .gray, radius: 3, x: 4, y: 4)
+                                        .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
+                                } else {
+                                    Text(book.title)
+                                        .fontWeight(.bold)
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                        .padding(5)
+                                        .frame(minWidth: DeviceSizeUtility.deviceWidth / 4 - 20)
+                                        .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
+                                        .frame(maxHeight: DeviceSizeUtility.isSESize ? 100 : 120)
+                                        .background(.white)
+                                        .clipped()
+                                        .shadow(color: .gray, radius: 3, x: 4, y: 4)
+                                }
+                            }.simultaneousGesture(TapGesture().onEnded {
+                                rootEnvironment.currentBook = book
+                            })
+                        }
                     }
                 }
-                Spacer()
+            } else {
+                EmptyDataView()
             }
+            
+           
         }.navigationBarBackButtonHidden()
     }
 }

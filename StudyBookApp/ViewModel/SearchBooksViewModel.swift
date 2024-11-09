@@ -19,6 +19,8 @@ class SearchBooksViewModel: ObservableObject {
     /// API検索結果の書籍情報を保持する配列
     /// ローカルに保存済みのものは対象外になる
     @Published private(set) var books: [Book] = []
+    @Published private(set) var resultCount: Int = 0
+    @Published private(set) var error: APIError? = nil
     @Published private(set) var isLoading: Bool = false
     
     /// ローカルに保存済みの書籍ID
@@ -29,6 +31,9 @@ class SearchBooksViewModel: ObservableObject {
     }
     
     public func fetchBooks(keyword: String) {
+        books = []
+        resultCount = 0
+        error = nil
         startLoading()
         googleBooksAPIRepository.fetchBooks(keyword: keyword)
     }
@@ -45,17 +50,35 @@ class SearchBooksViewModel: ObservableObject {
     public func onAppear(isSaveBooks: [Book]) {
         isSaveIds = isSaveBooks.map(\.id)
         
-        googleBooksAPIRepository.books.sink { [weak self] books in
-            guard let self else { return }
-            /// ローカルに既に保存しているものがあれば除去する
-            self.books = books.filter { !self.isSaveIds.contains($0.id) }
-            self.stopLoading()
-        }.store(in: &cancellables)
+        googleBooksAPIRepository.books
+            .sink(receiveValue: { [weak self] books in
+                guard let self else { return }
+                /// ローカルに既に保存しているものがあれば除去する
+                self.books = books.filter { !self.isSaveIds.contains($0.id) }
+                self.stopLoading()
+             }).store(in: &cancellables)
+        
+        googleBooksAPIRepository.resultCount
+            .sink(receiveValue: { [weak self] count in
+                guard let self else { return }
+                self.resultCount = count
+                self.stopLoading()
+            }).store(in: &cancellables)
+        
+        googleBooksAPIRepository.error
+            .sink(receiveValue: { [weak self] error in
+                guard let self else { return }
+                print("====ERROR", error)
+                self.error = error
+                self.stopLoading()
+            }).store(in: &cancellables)
     }
     
     public func onDisappear() {
         cancellables.forEach { $0.cancel() }
         books = []
+        resultCount = 0
+        error = nil
         stopLoading()
     }
 }

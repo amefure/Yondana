@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "book_image2.png",
       "idiom" : "universal"
     }
   ],

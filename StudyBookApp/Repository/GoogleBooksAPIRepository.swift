@@ -29,11 +29,24 @@ class GoogleBooksAPIRepository {
         return urlStr
     }
    
-    
+    // Never を APIError にしない → 一度エラーを流すと再度値を流せなくなるため
+    /// APIで取得した書籍情報
     public var books: AnyPublisher<[Book], Never> {
         _books.eraseToAnyPublisher()
     }
     private var _books = PassthroughSubject<[Book], Never>()
+    
+    /// APIエラー
+    public var error: AnyPublisher<APIError, Never> {
+        _error.eraseToAnyPublisher()
+    }
+    private var _error = PassthroughSubject<APIError, Never>()
+    
+    /// 書籍情報トータルカウント数
+    public var resultCount: AnyPublisher<Int, Never> {
+        _resultCount.eraseToAnyPublisher()
+    }
+    private var _resultCount = PassthroughSubject<Int, Never>()
 
     /// 日本語をエンコーディング
     private func getEncodingUrl(url: String) -> String {
@@ -44,28 +57,28 @@ class GoogleBooksAPIRepository {
     public func fetchBooks(keyword: String) {
         let endPoint = createEndPoint(keyword: keyword)
         let encUrl = getEncodingUrl(url: endPoint)
-        print("----URL：" + encUrl)
+        
+        guard !AppManager.sharedNetworkConnectStatusManager.checkIsOnline() else { return self.sendAPIError(.networkConnection) }
+        
         AF.request(encUrl).response { [weak self] response in
-            print("-- RESPONSE",response)
             guard let self else { return }
             do {
-                guard let data = response.data else { return }
+                guard let data = response.data else { return self.sendAPIError(.response) }
                 let json = try JSON(data: data)
-                print("-- JSON：", json)
                 // APIからエラーが返却された場合は処理を終了する
                 if json["error"].exists() {
-                    print("--ERROR")
+                    self.sendAPIError(.response)
                     return
                 }
                 
-                guard json["totalItems"] != 0 else { return }
+                guard json["totalItems"] != 0 else { return self._resultCount.send(0) }
+                self._resultCount.send(json["totalItems"].intValue)
                 let books = self.convertJsonToBook(json)
-                guard !books.isEmpty else { return }
-                print("-- BOOKS更新n")
-                _books.send(books)
+                guard !books.isEmpty else { return  self.sendAPIError(.response) }
+                self._books.send(books)
                 
             } catch {
-                
+                self.sendAPIError(.response)
             }
         }
     }
@@ -90,5 +103,9 @@ class GoogleBooksAPIRepository {
             books.append(bk)
         }
         return books
+    }
+    
+    private func sendAPIError(_ error: APIError) {
+        _error.send(error)
     }
 }

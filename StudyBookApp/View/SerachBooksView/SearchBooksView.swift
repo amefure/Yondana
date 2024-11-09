@@ -11,7 +11,7 @@ struct SearchBooksView: View {
     @ObservedObject private var viewModel = SearchBooksViewModel.shared
     @EnvironmentObject private var rootEnvironment: RootEnvironment
 
-    @State private var isEmpty: Bool = false
+//    @State private var isEmpty: Bool = false
     @State private var keyword: String = ""
 
     @Environment(\.dismiss) private var dismiss
@@ -32,14 +32,28 @@ struct SearchBooksView: View {
             searchTextFieldView()
 
             if !AppManager.sharedNetworkConnectStatusManager.checkIsOnline() {
-                Text("ネットワークに接続してください。")
+                ErrorView(msg: "ネットワークに接続してください。")
             } else {
                 if viewModel.isLoading {
+                    
+                    Spacer()
+                    
                     ProgressView()
                         .offset(y: -10)
+                    
+                    Spacer()
                 }
-                if isEmpty, viewModel.books.isEmpty {
+                
+                if let error = viewModel.error {
+                    ErrorView(msg: error.message)
+                }
+                
+                if viewModel.books.isEmpty {
+                    Spacer()
+                    
                     Text("検索に一致する書籍が見つかりませんでした。")
+                    
+                    Spacer()
 
                 } else {
                     List(viewModel.books) { book in
