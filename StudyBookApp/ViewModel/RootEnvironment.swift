@@ -12,6 +12,8 @@ import RealmSwift
 /// アプリ内で共通で利用される状態や環境値を保持する
 class RootEnvironment: ObservableObject {
     
+    static let shared = RootEnvironment()
+    
     @Published private(set) var categorys: [Category] = []
     @Published private(set) var books: [Book] = []
     @Published var currentBook: Book?
@@ -35,6 +37,11 @@ class RootEnvironment: ObservableObject {
     
     public func onDisappear() {
         cancellables.forEach { $0.cancel() }
+    }
+    
+    /// カテゴリ名取得
+    public func getCategoryName(_ id: ObjectId) -> String? {
+        categorys.first(where: { $0.id == id })?.name
     }
 }
 

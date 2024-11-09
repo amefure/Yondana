@@ -10,16 +10,16 @@ import SwiftUI
 struct DetailBookView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
     
-    private let df = DateFormatUtility()
-    public let book: Book
-    // dismissで実装するとCPUがオーバーフローする
-    @Environment(\.presentationMode) var presentationMode
+    // プロパティとして保持するとCPUがオーバーフローする
+    //private let df = DateFormatUtility()
+    public var book: Book
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         VStack {
             HeaderView(
                 leadingIcon: "chevron.backward",
                 leadingAction: {
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 },
                 content: {
                     Text(book.title)
@@ -28,10 +28,35 @@ struct DetailBookView: View {
             )
             
             ScrollView(showsIndicators: false) {
-                // 本のサムネイル
-                BookThumbnailView(book: book, width: 150, height: 225)
-               
-                itemTextView(title: "カテゴリ", body: book.categoryId.stringValue)
+                
+                HStack(alignment: .top) {
+                    
+                    if let name = rootEnvironment.getCategoryName(book.categoryId) {
+                        HStack(spacing: 0) {
+                            Circle()
+                                .fill(.white)
+                                .frame(width: 10, height: 10)
+                            
+                            Spacer()
+                            
+                            Text(name)
+                                .fontSS(bold: true)
+                                .foregroundStyle(.white)
+                                .lineLimit(1)
+                            
+                            Spacer()
+                        }.padding(8)
+                            .frame(width: 120, height: 30)
+                            .background(.themaBlack)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                    
+                    Spacer()
+                    
+                    // 本のサムネイル
+                    BookThumbnailView(book: book, width: 150, height: 225)
+                    
+                }.padding()
                 
                 itemTextView(title: "タイトル", body: book.title)
                 
@@ -39,7 +64,7 @@ struct DetailBookView: View {
                 
                 itemTextView(title: "概要", body: book.desc)
                 
-                itemTextView(title: "登録日時", body: df.getString(date: book.createdAt))
+                itemTextView(title: "登録日時", body: DateFormatUtility().getString(date: book.createdAt))
                 
                 itemTextView(title: "購入金額", body: book.amount == -1 ? "ー" : "\(book.amount)円")
                 

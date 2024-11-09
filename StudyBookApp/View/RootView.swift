@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RootView: View {
-    @ObservedObject private var rootEnvironment = RootEnvironment()
+    @ObservedObject private var rootEnvironment = RootEnvironment.shared
 
     @State private var mode: Bool = true
     var body: some View {

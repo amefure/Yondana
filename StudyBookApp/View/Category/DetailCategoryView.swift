@@ -103,7 +103,9 @@ struct DetailCategoryView: View {
                                             .clipped()
                                             .shadow(color: .gray, radius: 3, x: 4, y: 4)
                                     }
-                                }
+                                }.simultaneousGesture(TapGesture().onEnded {
+                                    rootEnvironment.currentBook = book
+                                })
                             }
                         }
                     }

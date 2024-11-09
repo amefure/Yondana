@@ -32,7 +32,7 @@ struct MyBookShelfView: View {
                                 .stroke(style: StrokeStyle(lineWidth: 2))
                                 .foregroundColor(.white)
                                 
-                        }.shadow(color: .gray, radius: 1, x: 1, y: 1)
+                        }.shadow(color: .gray,radius: 3, x: 2, y: 2)
                 }.alignmentGuide(.trailing) { _ in 80 }
                     .alignmentGuide(.bottom) { _ in 80 }
             }

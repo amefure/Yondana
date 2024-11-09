@@ -75,7 +75,7 @@ struct SearchBooksView: View {
                             .stroke(style: StrokeStyle(lineWidth: 2))
                             .foregroundColor(.white)
                             
-                    }.shadow(color: .gray, radius: 1, x: 1, y: 1)
+                    }.shadow(color: .gray,radius: 3, x: 2, y: 2)
             }
         }.transition(.scale)
             .padding()
@@ -124,7 +124,6 @@ fileprivate struct RowBooksView: View {
                 HStack {
                     Spacer()
                     Button {
-                        isClick = true
                         showSearchView = true
                     } label: {
                         Text(isClick ? "済み" : "追加")
@@ -134,7 +133,7 @@ fileprivate struct RowBooksView: View {
                             .foregroundColor(isClick ? .white : .themaBlack)
                             .frame(width: 50)
                             .background(isClick ? .themaBlack : .clear)
-                            .cornerRadius(10)
+                            .cornerRadius(8)
                             .overlay {
                                 if !isClick {
                                     RoundedRectangle(cornerRadius: 10)
@@ -146,9 +145,8 @@ fileprivate struct RowBooksView: View {
                 }
             }
         }.padding(10)
-            
             .fullScreenCover(isPresented: $showSearchView) {
-                SelectCategoryView(book: book)
+                SelectCategoryView(book: book, isSave: $isClick)
                     .environmentObject(rootEnvironment)
             }
     }

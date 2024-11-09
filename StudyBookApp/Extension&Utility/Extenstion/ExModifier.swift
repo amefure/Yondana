@@ -19,11 +19,11 @@ struct RoundedRectangleShadowBackView: ViewModifier {
                 .background(.white)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
-                      .stroke(style: StrokeStyle(lineWidth: 2))
+                        .stroke(.themaBlack, style: StrokeStyle(lineWidth: 2))
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .clipped()
-                .shadow(color: .gray,radius: 3, x: 2, y: 2)
+                .shadow(color: .gray, radius: 3, x: 2, y: 2)
     }
 }
 
@@ -45,7 +45,12 @@ extension View {
         modifier(RoundedRectangleShadowBackView(width: width, height: height))
     }
     
-    /// 文字サイズ M
+    /// 文字サイズ SS
+    func fontSS(bold: Bool = false) -> some View {
+        modifier(FontSize(size: 12, bold: bold))
+    }
+    
+    /// 文字サイズ S
     func fontS(bold: Bool = false) -> some View {
         modifier(FontSize(size: 14, bold: bold))
     }
