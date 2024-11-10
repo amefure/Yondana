@@ -14,6 +14,8 @@ class RootEnvironment: ObservableObject {
     
     static let shared = RootEnvironment()
     
+    private let dateFormatUtility = DateFormatUtility()
+    
     @Published private(set) var categorys: [Category] = []
     @Published private(set) var books: [Book] = []
     @Published var currentBook: Book?
@@ -125,5 +127,40 @@ extension RootEnvironment {
     
     public func deleteCategorys() {
         realmRepository.removeObjs(list: categorys)
+    }
+    
+    /// Bookを月毎にセクション分けした辞書型に変換する
+    public func dayBookDictionary(books: [Book]) -> [Date: [Book]]? {
+        let today = Date()
+        var groupedRecords = Dictionary(grouping: books) { [weak self] book in
+            guard let self else { return today }
+            return dateFormatUtility.startOfMonth(book.createdAt)
+        }
+       
+        // 今月のDate型を取得
+        let currentMonth = dateFormatUtility.startOfMonth(today)
+        
+        // 6ヶ月前の日付を計算
+        let sixMonthsAgo = dateFormatUtility.dateByAdding(currentMonth, by: .month, value: -5)
+        
+        // 6ヶ月前の日付の月単位の最初の日
+        let startDate = dateFormatUtility.startOfMonth(sixMonthsAgo)
+        
+        var date = startDate
+        
+        while date <= today {
+            // 現在の月の最初の日付をキーとして辞書に存在しない場合、空の配列で追加
+            if groupedRecords[date] == nil {
+                groupedRecords[date] = []
+            }
+            // 次の月の最初の日付を計算
+            let nextMonth = dateFormatUtility.dateByAdding(date, by: .month, value: 1)
+            date = dateFormatUtility.startOfMonth(nextMonth)
+        }
+        return groupedRecords
+    }
+    
+    public func calcSumAmount(books: [Book]) -> Int {
+        books.reduce(0) { $0 + $1.amount }
     }
 }

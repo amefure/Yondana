@@ -45,6 +45,11 @@ extension View {
         modifier(RoundedRectangleShadowBackView(width: width, height: height))
     }
     
+    /// 文字サイズ SSS
+    func fontSSS(bold: Bool = false) -> some View {
+        modifier(FontSize(size: 10, bold: bold))
+    }
+    
     /// 文字サイズ SS
     func fontSS(bold: Bool = false) -> some View {
         modifier(FontSize(size: 12, bold: bold))

@@ -46,6 +46,8 @@
 		1221ECCF2CDA47BC00F2A6E7 /* BookThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221ECCE2CDA47BC00F2A6E7 /* BookThumbnailView.swift */; };
 		123088412CE08B9200455EC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088402CE08B9200455EC8 /* LoadingView.swift */; };
 		123088432CE08F5F00455EC8 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088422CE08F5D00455EC8 /* LoadingViewModel.swift */; };
+		123088452CE0F25900455EC8 /* ExInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088442CE0F25800455EC8 /* ExInt.swift */; };
+		123088472CE0F44D00455EC8 /* BooksChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088462CE0F44D00455EC8 /* BooksChartsView.swift */; };
 		1252FDE82CDA506B007D23B9 /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDE72CDA5067007D23B9 /* ExString.swift */; };
 		1252FDEA2CDA5949007D23B9 /* DetailCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDE92CDA5948007D23B9 /* DetailCategoryView.swift */; };
 		1252FDEC2CDA5AE9007D23B9 /* BookGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */; };
@@ -96,6 +98,8 @@
 		1221ECCE2CDA47BC00F2A6E7 /* BookThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookThumbnailView.swift; sourceTree = "<group>"; };
 		123088402CE08B9200455EC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		123088422CE08F5D00455EC8 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
+		123088442CE0F25800455EC8 /* ExInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExInt.swift; sourceTree = "<group>"; };
+		123088462CE0F44D00455EC8 /* BooksChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksChartsView.swift; sourceTree = "<group>"; };
 		1252FDE72CDA5067007D23B9 /* ExString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExString.swift; sourceTree = "<group>"; };
 		1252FDE92CDA5948007D23B9 /* DetailCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryView.swift; sourceTree = "<group>"; };
 		1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridListView.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 			children = (
 				1221ECB92CD7CC9F00F2A6E7 /* Layout */,
 				1221ECCE2CDA47BC00F2A6E7 /* BookThumbnailView.swift */,
+				123088462CE0F44D00455EC8 /* BooksChartsView.swift */,
 				1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */,
 				1294643B2CDF9B5500A30FC8 /* EmptyDataView.swift */,
 				1294643F2CDFA0AF00A30FC8 /* ErrorView.swift */,
@@ -323,6 +328,7 @@
 			children = (
 				1252FDED2CDA5BC7007D23B9 /* ExModifier.swift */,
 				1252FDE72CDA5067007D23B9 /* ExString.swift */,
+				123088442CE0F25800455EC8 /* ExInt.swift */,
 				1221EC3B2CD6749C00F2A6E7 /* ExCollection.swift */,
 				1221EC3C2CD6749C00F2A6E7 /* ExUIApplication.swift */,
 			);
@@ -522,9 +528,11 @@
 				1221ECB42CD799A700F2A6E7 /* ImageFileManager.swift in Sources */,
 				1221ECB02CD7944A00F2A6E7 /* NetWorkManager.swift in Sources */,
 				1294643E2CDF9D0400A30FC8 /* APIError.swift in Sources */,
+				123088452CE0F25900455EC8 /* ExInt.swift in Sources */,
 				1221ECC12CD7CF2D00F2A6E7 /* InputCategoryView.swift in Sources */,
 				1221ECBB2CD7CCAC00F2A6E7 /* TabViewLayout.swift in Sources */,
 				1221ECCD2CDA329600F2A6E7 /* CategoryListView.swift in Sources */,
+				123088472CE0F44D00455EC8 /* BooksChartsView.swift in Sources */,
 				1221EC652CD6749C00F2A6E7 /* RootEnvironment.swift in Sources */,
 				1221ECC72CD8AD6400F2A6E7 /* MyBookShelfViewModel.swift in Sources */,
 				1221ECA62CD7368D00F2A6E7 /* RelamRepository.swift in Sources */,
@@ -683,6 +691,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StudyBookApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = YONDANA;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -720,6 +729,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StudyBookApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = YONDANA;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -6,14 +6,21 @@
 //
 
 import SwiftUI
+import Charts
 
 struct DetailCategoryView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
+   
     public let category: Category
     @State private var showDesc: Bool = false
     @State private var showEditView: Bool = false
+
     // dismissで実装するとCPUがオーバーフローする
     @Environment(\.presentationMode) var presentationMode
+
+
+    
+    
     var body: some View {
         VStack(spacing: 0) {
             
@@ -54,6 +61,12 @@ struct DetailCategoryView: View {
                 .background(.themaBlack)
             
             
+            if let dic = rootEnvironment.dayBookDictionary(books: Array(category.books)) {
+                BooksChartsView(booksDateDic: dic)
+                    .environmentObject(rootEnvironment)
+            }
+           
+            
             NavigationLink {
                 BookGridListView(category: category)
                     .environmentObject(rootEnvironment)
@@ -71,7 +84,7 @@ struct DetailCategoryView: View {
 
             
             VStack {
-                if rootEnvironment.books.isEmpty {
+                if category.books.isEmpty {
                     HStack {
                         Spacer()
                         Text("書籍情報がありません")
@@ -110,12 +123,13 @@ struct DetailCategoryView: View {
                         }
                     }
                 }
-            }.frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
+            }.frame(height: DeviceSizeUtility.isSESize ? 120 : 140)
                 .padding(.horizontal)
+                .padding(.vertical)
                 
         
-            Text("\(category.books.count)冊")
-                .roundedRectangleShadowBackView(height: 80)
+            //Text(rootEnvironment.calcSumAmount(books: category.books) + "円")
+            
             
             Spacer()
         
