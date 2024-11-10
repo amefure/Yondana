@@ -11,7 +11,6 @@ struct SearchBooksView: View {
     @ObservedObject private var viewModel = SearchBooksViewModel.shared
     @EnvironmentObject private var rootEnvironment: RootEnvironment
 
-//    @State private var isEmpty: Bool = false
     @State private var keyword: String = ""
 
     @Environment(\.dismiss) private var dismiss
@@ -35,33 +34,28 @@ struct SearchBooksView: View {
                 ErrorView(msg: "ネットワークに接続してください。")
             } else {
                 if viewModel.isLoading {
-                    
-                    Spacer()
-                    
-                    ProgressView()
-                        .offset(y: -10)
-                    
-                    Spacer()
+                    LoadingView(msg: "検索中...")
                 }
                 
                 if let error = viewModel.error {
+                    // エラー画面
                     ErrorView(msg: error.message)
-                }
-                
-                if viewModel.books.isEmpty {
-                    Spacer()
-                    
-                    Text("検索に一致する書籍が見つかりませんでした。")
-                    
-                    Spacer()
+                } else if viewModel.resultCount == 0 {
+                    // 書籍情報0件表示
+                    EmptyDataView(text: "検索に一致する書籍が見つかりませんでした。")
 
-                } else {
+                } else if let count = viewModel.resultCount {
+                    Text("\(count)件HIT")
+                        .fontM(bold: true)
+                    // 対象書籍情報リスト
                     List(viewModel.books) { book in
                         RowBooksView(book: book)
                     }.scrollContentBackground(.hidden)
                         .background(.white)
                         .listStyle(.grouped)
                 }
+                
+                Spacer()
             }
         }.onAppear { viewModel.onAppear(isSaveBooks: rootEnvironment.books) }
             .onDisappear { viewModel.onDisappear() }

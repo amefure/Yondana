@@ -19,7 +19,7 @@ class SearchBooksViewModel: ObservableObject {
     /// API検索結果の書籍情報を保持する配列
     /// ローカルに保存済みのものは対象外になる
     @Published private(set) var books: [Book] = []
-    @Published private(set) var resultCount: Int = 0
+    @Published private(set) var resultCount: Int? = nil
     @Published private(set) var error: APIError? = nil
     @Published private(set) var isLoading: Bool = false
     
@@ -32,7 +32,7 @@ class SearchBooksViewModel: ObservableObject {
     
     public func fetchBooks(keyword: String) {
         books = []
-        resultCount = 0
+        resultCount = nil
         error = nil
         startLoading()
         googleBooksAPIRepository.fetchBooks(keyword: keyword)
@@ -77,7 +77,7 @@ class SearchBooksViewModel: ObservableObject {
     public func onDisappear() {
         cancellables.forEach { $0.cancel() }
         books = []
-        resultCount = 0
+        resultCount = nil
         error = nil
         stopLoading()
     }

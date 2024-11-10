@@ -58,7 +58,7 @@ class GoogleBooksAPIRepository {
         let endPoint = createEndPoint(keyword: keyword)
         let encUrl = getEncodingUrl(url: endPoint)
         
-        guard !AppManager.sharedNetworkConnectStatusManager.checkIsOnline() else { return self.sendAPIError(.networkConnection) }
+        guard AppManager.sharedNetworkConnectStatusManager.checkIsOnline() else { return self.sendAPIError(.networkConnection) }
         
         AF.request(encUrl).response { [weak self] response in
             guard let self else { return }
