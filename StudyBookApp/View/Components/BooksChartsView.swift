@@ -10,19 +10,21 @@ import Charts
 
 struct BooksChartsView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
+    
+    @StateObject private var viewModel = BooksChartsViewModel()
     private let df = DateFormatUtility(format: "M月")
     private let dfYear = DateFormatUtility(format: "YYYY年M月")
-    public let booksDateDic: [Date: [Book]]
+    public let books: [Book]
     @State private var selectCharts: Int = 0
     
-    init(booksDateDic: [Date: [Book]]) {
-        self.booksDateDic = booksDateDic
+    init(books: [Book]) {
+        self.books = books
         self.setUpSegmentedPicker()
     }
     
     private func setUpSegmentedPicker() {
         let appearance = UISegmentedControl.appearance()
-        // 選択しているアイテムの背景色
+        // 選択しているアイテムの背景色ex_text
         appearance.selectedSegmentTintColor = .themaBlack
         let font = UIFont.boldSystemFont(ofSize: 17)
         // 未選択アイテムの文字属性
@@ -43,30 +45,30 @@ struct BooksChartsView: View {
             
             HStack {
                 
-//                Button {
-//                    
-//                } label: {
-//                    Image(systemName: "chevron.backward")
-//                }
+                Button {
+                    viewModel.backMonth(books: books)
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
                 
-                let dates = Array(booksDateDic.keys)
+                let dates = Array(viewModel.booksDateDic.keys)
                 if let minDate = dates.min(),
                    let maxDate = dates.max() {
                     Text(dfYear.getString(date: minDate) + "〜" + dfYear.getString(date: maxDate))
                 }
                 
-//                Button {
-//                    
-//                } label: {
-//                    Image(systemName: "chevron.forward")
-//                }
+                Button {
+                    viewModel.forwardMonth(books: books)
+                } label: {
+                    Image(systemName: "chevron.forward")
+                }
             }
             
             /// https://qiita.com/yamakentoc/items/55a7d7264691b2caf592#%E3%83%A9%E3%83%99%E3%83%AB
             Chart {
-                ForEach(booksDateDic.keys.sorted(by: { $0 < $1 }), id: \.self) { date in
+                ForEach(viewModel.booksDateDic.keys.sorted(by: { $0 < $1 }), id: \.self) { date in
                     
-                    if let books = booksDateDic[date] {
+                    if let books = viewModel.booksDateDic[date] {
                         BarMark(
                             x: .value("年月", date),
                             y: .value("冊数", selectCharts == 0 ? books.count : rootEnvironment.calcSumAmount(books: books))
@@ -78,6 +80,8 @@ struct BooksChartsView: View {
                                             .fontS(bold: true)
                                             .foregroundStyle(.exText)
                                             .frame(width: 50)
+                                        // No color named 'ex_text' found in asset catalog for
+                                        // 上記でカラーを指定するとエラーになるがUI上は問題ない
                                     }
                                 } else {
                                     let sum = rootEnvironment.calcSumAmount(books: books)
@@ -126,9 +130,12 @@ struct BooksChartsView: View {
                     }
                 }
         }.padding(.vertical)
+            .onAppear { viewModel.onAppear(books: books)}
+
     }
 }
 
 #Preview {
-    BooksChartsView(booksDateDic: [:])
+    BooksChartsView(books: [])
+        .environmentObject(RootEnvironment())
 }

@@ -60,10 +60,9 @@ struct DetailCategoryView: View {
                     .background(.themaBlack)
                 
                 ScrollView(showsIndicators: false) {
-                    if let dic = rootEnvironment.dayBookDictionary(books: Array(category.books)) {
-                        BooksChartsView(booksDateDic: dic)
-                            .environmentObject(rootEnvironment)
-                    }
+                    
+                    BooksChartsView(books: Array(category.books))
+                        .environmentObject(rootEnvironment)
                    
                     
                     NavigationLink {
