@@ -55,6 +55,8 @@
 		123088562CE3778100455EC8 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088552CE3778100455EC8 /* SettingView.swift */; };
 		123088582CE377D900455EC8 /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088572CE377D700455EC8 /* StaticUrls.swift */; };
 		1230885A2CE3781300455EC8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088592CE3781200455EC8 /* SettingViewModel.swift */; };
+		1230885D2CE39DF600455EC8 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1230885C2CE39DF600455EC8 /* PrivacyInfo.xcprivacy */; };
+		1230885F2CE39E3200455EC8 /* AdMobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1230885E2CE39E3200455EC8 /* AdMobView.swift */; };
 		1252FDE82CDA506B007D23B9 /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDE72CDA5067007D23B9 /* ExString.swift */; };
 		1252FDEA2CDA5949007D23B9 /* DetailCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDE92CDA5948007D23B9 /* DetailCategoryView.swift */; };
 		1252FDEC2CDA5AE9007D23B9 /* BookGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */; };
@@ -114,6 +116,8 @@
 		123088552CE3778100455EC8 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		123088572CE377D700455EC8 /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
 		123088592CE3781200455EC8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		1230885C2CE39DF600455EC8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1230885E2CE39E3200455EC8 /* AdMobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobView.swift; sourceTree = "<group>"; };
 		1252FDE72CDA5067007D23B9 /* ExString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExString.swift; sourceTree = "<group>"; };
 		1252FDE92CDA5948007D23B9 /* DetailCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryView.swift; sourceTree = "<group>"; };
 		1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridListView.swift; sourceTree = "<group>"; };
@@ -212,11 +216,11 @@
 			children = (
 				1221EC4E2CD6749C00F2A6E7 /* StudyBookAppApp.swift */,
 				1221EC4D2CD6749C00F2A6E7 /* RootView.swift */,
-				123088552CE3778100455EC8 /* SettingView.swift */,
 				123088482CE0F97900455EC8 /* Book */,
 				1221ECBF2CD7CEFC00F2A6E7 /* Category */,
 				1221ECBE2CD7CEEC00F2A6E7 /* SerachBooksView */,
 				1230884E2CE217F200455EC8 /* Dialog */,
+				1230885B2CE39C9200455EC8 /* Setting */,
 				1221ECB82CD7CC9700F2A6E7 /* Components */,
 			);
 			path = View;
@@ -240,6 +244,7 @@
 			children = (
 				1221EC532CD6749C00F2A6E7 /* Info.plist */,
 				1221EC522CD6749C00F2A6E7 /* GoogleService-Info.plist */,
+				1230885C2CE39DF600455EC8 /* PrivacyInfo.xcprivacy */,
 				1221EC402CD6749C00F2A6E7 /* Generated */,
 				1221EC4C2CD6749C00F2A6E7 /* Resources */,
 				1221EC3D2CD6749C00F2A6E7 /* Extension&Utility */,
@@ -336,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				1230884C2CE1187500455EC8 /* CategoryLabelView.swift */,
+				1230885E2CE39E3200455EC8 /* AdMobView.swift */,
 			);
 			path = UIParts;
 			sourceTree = "<group>";
@@ -347,6 +353,14 @@
 				123088512CE2183600455EC8 /* CustomPopUpDialogView.swift */,
 			);
 			path = Dialog;
+			sourceTree = "<group>";
+		};
+		1230885B2CE39C9200455EC8 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				123088552CE3778100455EC8 /* SettingView.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		126B413A2CD66D1D00ECAE88 = {
@@ -469,6 +483,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1230885D2CE39DF600455EC8 /* PrivacyInfo.xcprivacy in Resources */,
 				1221EC552CD6749C00F2A6E7 /* Preview Assets.xcassets in Resources */,
 				1221EC562CD6749C00F2A6E7 /* Colors.xcassets in Resources */,
 				1221EC572CD6749C00F2A6E7 /* Images.xcassets in Resources */,
@@ -558,6 +573,7 @@
 				1252FDEE2CDA5BC7007D23B9 /* ExModifier.swift in Sources */,
 				1221ECCB2CD9F90900F2A6E7 /* InputBookView.swift in Sources */,
 				1221EC5F2CD6749C00F2A6E7 /* Assets.swift in Sources */,
+				1230885F2CE39E3200455EC8 /* AdMobView.swift in Sources */,
 				1221EC602CD6749C00F2A6E7 /* Strings.swift in Sources */,
 				123088412CE08B9200455EC8 /* LoadingView.swift in Sources */,
 				1221ECCF2CDA47BC00F2A6E7 /* BookThumbnailView.swift in Sources */,

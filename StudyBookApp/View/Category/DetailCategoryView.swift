@@ -136,13 +136,7 @@ struct DetailCategoryView: View {
                         showDeleteConfirmAlert = true
                     } label: {
                         Text("削除")
-                            .frame(width: 150, height: 30)
-                            .font(.system(size: 17, weight: .bold))
-                            .padding(8)
-                            .background(.themaBlack)
-                            .foregroundStyle(.white)
-                            .fontWeight(.bold)
-                            .cornerRadius(8)
+                            .roundedRectangleButtonView()
                     }.padding(.top)
                    
                     Spacer()

@@ -96,17 +96,7 @@ struct CategoryListView: View {
                     showSearchView = true
                 } label: {
                     Image(systemName: "plus")
-                        .frame(width: 40, height: 40)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                        .background(.themaBlack)
-                        .clipShape(RoundedRectangle(cornerRadius: 40))
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 40)
-                                .stroke(style: StrokeStyle(lineWidth: 2))
-                                .foregroundStyle(.white)
-                                
-                        }.shadow(color: .gray,radius: 3, x: 2, y: 2)
+                        .roundedButtonView()
                 }.alignmentGuide(.trailing) { _ in 80 }
                     .alignmentGuide(.bottom) { _ in 80 }
             }

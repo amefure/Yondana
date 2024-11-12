@@ -70,13 +70,7 @@ struct DetailBookView: View {
                     showDeleteConfirmAlert = true
                 } label: {
                     Text("削除")
-                        .frame(width: 150, height: 30)
-                        .font(.system(size: 17, weight: .bold))
-                        .padding(8)
-                        .background(.themaBlack)
-                        .foregroundStyle(.white)
-                        .fontWeight(.bold)
-                        .cornerRadius(8)
+                        .roundedRectangleButtonView()
                 }
                 
             }
@@ -98,10 +92,7 @@ struct DetailBookView: View {
                     presentationMode.wrappedValue.dismiss()
                 }
             )
-   
     }
-    
-
 }
 
 private struct ItemTextView: View {
@@ -130,9 +121,7 @@ private struct ItemTextView: View {
         }.foregroundStyle(.exText)
             .padding(.bottom)
             .onTapGesture {
-                if content.isEmpty {
-                    return
-                }
+                guard !content.isEmpty else { return }
                 msgTitle = title
                 msgContent = content
                 isAlert = true

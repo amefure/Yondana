@@ -42,7 +42,7 @@ Pods
 
 # Firebase
 GoogleService-Info.plist
-StudyBookApp/View/Components/AdMobViewModels.swift
+StudyBookApp/View/Components/UIParts/AdMobViewModels.swift
 
 # Carthage
 Carthage/Build/

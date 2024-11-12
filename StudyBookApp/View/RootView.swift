@@ -10,12 +10,12 @@ import SwiftUI
 struct RootView: View {
     @ObservedObject private var rootEnvironment = RootEnvironment.shared
 
+    /// 書籍 or カテゴリモード切り替え
     @State private var mode: Bool = true
     var body: some View {
         VStack {
             
             HStack {
-                
                 Button {
                     mode.toggle()
                 } label: {
@@ -29,6 +29,7 @@ struct RootView: View {
                 Text(mode ? "ALL BOOKS" : "CATEGORYS")
                     .fontL(bold: true)
                     .foregroundStyle(.themaBlack)
+                
                 Spacer()
           
                 NavigationLink {
@@ -40,6 +41,7 @@ struct RootView: View {
                 }
             }.padding(.horizontal, 30)
                 .padding(.vertical, 10)
+            
             if mode  {
                 MyBookShelfView()
                     .environmentObject(rootEnvironment)
@@ -48,9 +50,10 @@ struct RootView: View {
                     .environmentObject(rootEnvironment)
             }
            
+            AdMobBannerView()
+                .frame(height: 60)
         }.onAppear { rootEnvironment.onAppear() }
             .onDisappear { rootEnvironment.onDisappear() }
-        
     }
 }
 

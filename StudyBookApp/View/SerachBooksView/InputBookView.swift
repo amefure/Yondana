@@ -158,14 +158,7 @@ struct InputBookView: View {
                     dismiss()
                 } label: {
                     Text(!forAPI ? "更新" : "登録")
-                        .frame(width: 150, height: 30)
-                        .font(.system(size: 17, weight: .bold))
-                        .padding(8)
-                        .background(.themaBlack)
-                        .foregroundStyle(.white)
-                        .fontWeight(.bold)
-                        .cornerRadius(8)
-                        .shadow(color: .gray,radius: 3, x: 2, y: 2)
+                        .roundedRectangleButtonView()
                 }
             }
             
@@ -192,7 +185,7 @@ struct InputBookView: View {
     }
 }
 
-struct InputView: View {
+private struct InputView: View {
     public let title: String
     public let placeholder: String
     public var isOnlyNumber: Bool = false
@@ -211,7 +204,7 @@ struct InputView: View {
     }
 }
 
-struct InputEditView: View {
+private struct InputEditView: View {
     public let title: String
     @Binding var text: String
     
@@ -229,6 +222,7 @@ struct InputEditView: View {
 
 #Preview {
     InputBookView(book: Book(), isSave: Binding.constant(false))
+        .environmentObject(RootEnvironment())
 }
 
 
