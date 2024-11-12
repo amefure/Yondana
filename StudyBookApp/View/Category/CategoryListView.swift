@@ -14,7 +14,6 @@ struct CategoryListView: View {
     private let width = DeviceSizeUtility.deviceWidth / 6
     private let height = (DeviceSizeUtility.deviceWidth / 6) * 1.5
     @State private var isPresented: Bool = false
-    @State private var category: Category = Category()
     
     var body: some View {
         VStack {
@@ -24,7 +23,7 @@ struct CategoryListView: View {
                     List {
                         ForEach(rootEnvironment.categorys.filter({ $0.id != Category.unSelectCategryID}).sorted(by: { $0.name < $1.name})) { category in
                             Button {
-                                self.category = category
+                                rootEnvironment.currentCategory = category
                                 isPresented = true
                             } label: {
                                 VStack(alignment: .leading) {
@@ -115,7 +114,7 @@ struct CategoryListView: View {
             InputCategoryView()
                 .environmentObject(rootEnvironment)
         }.navigationDestination(isPresented: $isPresented) {
-            DetailCategoryView(category: category)
+            DetailCategoryView()
                 .environmentObject(rootEnvironment)
         }
     }

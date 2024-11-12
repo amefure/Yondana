@@ -48,15 +48,15 @@ struct SettingView: View {
             
             List {
                 Section(header: Text("Link"), footer: Text(L10n.settingSectionLinkDesc)) {
-                    if let url = URL(string: StaticUrls.APP_REVIEW_URL) {
-                        // 1:レビューページ
-                        Link(destination: url, label: {
-                            HStack {
-                                Image(systemName: "hand.thumbsup")
-                                Text(L10n.settingSectionLinkReview)
-                            }.foregroundStyle(.white)
-                        }).listRowBackground(Color.themaBlack)
-                    }
+//                    if let url = URL(string: StaticUrls.APP_REVIEW_URL) {
+//                        // 1:レビューページ
+//                        Link(destination: url, label: {
+//                            HStack {
+//                                Image(systemName: "hand.thumbsup")
+//                                Text(L10n.settingSectionLinkReview)
+//                            }.foregroundStyle(.white)
+//                        }).listRowBackground(Color.themaBlack)
+//                    }
                     
                     // 2:シェアボタン
                     Button {

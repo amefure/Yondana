@@ -18,7 +18,7 @@ class RootEnvironment: ObservableObject {
     
     @Published private(set) var categorys: [Category] = []
     @Published private(set) var books: [Book] = []
-    @Published var currentBook: Book?
+    @Published var currentCategory: Category?
     private var cancellables = Set<AnyCancellable>()
     private var realmRepository: RealmRepository
     
@@ -139,6 +139,9 @@ extension RootEnvironment {
     public func fetchAllData() {
         categorys = realmRepository.readAllObjs()
         books = categorys.flatMap({ $0.books })
+        if let id = currentCategory?.id {
+            currentCategory = categorys.first { $0.id == id }
+        }
     }
     
     

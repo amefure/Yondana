@@ -11,7 +11,6 @@ import Charts
 struct DetailCategoryView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
    
-    public let category: Category
     @State private var showDesc: Bool = false
     @State private var showEditView: Bool = false
     @State private var showDeleteConfirmAlert: Bool = false
@@ -20,159 +19,159 @@ struct DetailCategoryView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack(spacing: 0) {
+        if let category = rootEnvironment.currentCategory {
+            VStack(spacing: 0) {
             
-            HeaderView(
-                leadingIcon: "chevron.backward",
-                trailingIcon: "square.and.pencil",
-                leadingAction: {
-                    presentationMode.wrappedValue.dismiss()
-                },
-                trailingAction: {
-                    showEditView = true
-                },
-                content: {
-                    Text(category.name)
-                        .font(.system(size: 20))
-                        .lineLimit(1)
-                }
-            )
-            
-      
-            HStack(alignment: .top) {
-                Text(category.memo)
-                    .frame(width: DeviceSizeUtility.deviceWidth - 80, alignment: .leading)
-                    .font(.system(size: 17))
-                    .foregroundStyle(.white)
-                    .lineLimit(showDesc ? .none : 1)
-                
-                Button {
-                    withAnimation {
-                        showDesc.toggle()
+                HeaderView(
+                    leadingIcon: "chevron.backward",
+                    trailingIcon: "square.and.pencil",
+                    leadingAction: {
+                        presentationMode.wrappedValue.dismiss()
+                    },
+                    trailingAction: {
+                        showEditView = true
+                    },
+                    content: {
+                        Text(category.name)
+                            .font(.system(size: 20))
+                            .lineLimit(1)
                     }
-                } label: {
-                    Image(systemName: showDesc ? "chevron.up" : "chevron.down")
-                        .fontWeight(.bold)
+                )
+                
+          
+                HStack(alignment: .top) {
+                    Text(category.memo)
+                        .frame(width: DeviceSizeUtility.deviceWidth - 80, alignment: .leading)
+                        .font(.system(size: 17))
                         .foregroundStyle(.white)
-                }
-            }.frame(width: DeviceSizeUtility.deviceWidth)
-                .padding([.horizontal, .bottom])
-                .background(.themaBlack)
-            
-            ScrollView(showsIndicators: false) {
-                if let dic = rootEnvironment.dayBookDictionary(books: Array(category.books)) {
-                    BooksChartsView(booksDateDic: dic)
-                        .environmentObject(rootEnvironment)
-                }
-               
-                
-                NavigationLink {
-                    BookGridListView(category: category)
-                        .environmentObject(rootEnvironment)
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("書籍一覧：\(category.books.count)冊")
-                            .font(.system(size: 17))
-                        
-                        Image(systemName: "chevron.forward")
-                            .font(.system(size: 14))
+                        .lineLimit(showDesc ? .none : 1)
+                    
+                    Button {
+                        withAnimation {
+                            showDesc.toggle()
+                        }
+                    } label: {
+                        Image(systemName: showDesc ? "chevron.up" : "chevron.down")
                             .fontWeight(.bold)
-                    }.foregroundStyle(.exText)
-                }.padding()
-
+                            .foregroundStyle(.white)
+                    }
+                }.frame(width: DeviceSizeUtility.deviceWidth)
+                    .padding([.horizontal, .bottom])
+                    .background(.themaBlack)
                 
-                VStack {
-                    if category.books.isEmpty {
+                ScrollView(showsIndicators: false) {
+                    if let dic = rootEnvironment.dayBookDictionary(books: Array(category.books)) {
+                        BooksChartsView(booksDateDic: dic)
+                            .environmentObject(rootEnvironment)
+                    }
+                   
+                    
+                    NavigationLink {
+                        BookGridListView(category: category)
+                            .environmentObject(rootEnvironment)
+                    } label: {
                         HStack {
                             Spacer()
-                            Text("書籍情報がありません")
-                            Spacer()
-                        }
-                    } else {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 15) {
-                                ForEach(category.books) { book in
-                                    NavigationLink {
-                                        DetailBookView(book: book)
-                                            .environmentObject(rootEnvironment)
-                                    } label: {
-                                        if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
-                                            image
-                                                .resizable()
-                                                .shadow(color: .gray, radius: 3, x: 4, y: 4)
-                                                .frame(width: DeviceSizeUtility.deviceWidth / 4 - 20, height: DeviceSizeUtility.isSESize ? 100 : 120)
-                                        } else {
-                                            Text(book.title)
-                                                .fontWeight(.bold)
-                                                .font(.caption)
-                                                .foregroundColor(.gray)
-                                                .padding(5)
-                                                .frame(width: DeviceSizeUtility.deviceWidth / 4 - 20, height: DeviceSizeUtility.isSESize ? 100 : 120)
-                                                .frame(minWidth: DeviceSizeUtility.deviceWidth / 4 - 20)
-                                                .frame(maxHeight: DeviceSizeUtility.isSESize ? 100 : 120)
-                                                .background(.white)
-                                                .clipped()
-                                                .shadow(color: .gray, radius: 3, x: 4, y: 4)
+                            Text("書籍一覧：\(category.books.count)冊")
+                                .font(.system(size: 17))
+                            
+                            Image(systemName: "chevron.forward")
+                                .font(.system(size: 14))
+                                .fontWeight(.bold)
+                        }.foregroundStyle(.exText)
+                    }.padding()
+
+                    
+                    VStack {
+                        if category.books.isEmpty {
+                            HStack {
+                                Spacer()
+                                Text("書籍情報がありません")
+                                Spacer()
+                            }
+                        } else {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 15) {
+                                    ForEach(category.books) { book in
+                                        NavigationLink {
+                                            DetailBookView(book: book)
+                                                .environmentObject(rootEnvironment)
+                                        } label: {
+                                            if let image = AppManager.sharedImageFileManager.fetchImage(name: book.id) {
+                                                image
+                                                    .resizable()
+                                                    .shadow(color: .gray, radius: 3, x: 4, y: 4)
+                                                    .frame(width: DeviceSizeUtility.deviceWidth / 4 - 20, height: DeviceSizeUtility.isSESize ? 100 : 120)
+                                            } else {
+                                                Text(book.title)
+                                                    .fontWeight(.bold)
+                                                    .font(.caption)
+                                                    .foregroundColor(.gray)
+                                                    .padding(5)
+                                                    .frame(width: DeviceSizeUtility.deviceWidth / 4 - 20, height: DeviceSizeUtility.isSESize ? 100 : 120)
+                                                    .frame(minWidth: DeviceSizeUtility.deviceWidth / 4 - 20)
+                                                    .frame(maxHeight: DeviceSizeUtility.isSESize ? 100 : 120)
+                                                    .background(.white)
+                                                    .clipped()
+                                                    .shadow(color: .gray, radius: 3, x: 4, y: 4)
+                                            }
                                         }
-                                    }.simultaneousGesture(TapGesture().onEnded {
-                                        rootEnvironment.currentBook = book
-                                    })
+                                    }
                                 }
                             }
                         }
+                    }.frame(height: DeviceSizeUtility.isSESize ? 120 : 140)
+                        .padding(.horizontal)
+                        .padding(.vertical)
+                        
+                    VStack(alignment: .leading) {
+                        Text("累計金額")
+                        
+                        Text("\(rootEnvironment.calcSumAmount(books: Array(category.books)))円")
+                            .fontL(bold: true)
+                            .roundedRectangleShadowBackView(height: 80)
                     }
-                }.frame(height: DeviceSizeUtility.isSESize ? 120 : 140)
-                    .padding(.horizontal)
-                    .padding(.vertical)
-                    
-                VStack(alignment: .leading) {
-                    Text("累計金額")
-                    
-                    Text("\(rootEnvironment.calcSumAmount(books: Array(category.books)))円")
-                        .fontL(bold: true)
-                        .roundedRectangleShadowBackView(height: 80)
+                
+                
+                    Button {
+                        showDeleteConfirmAlert = true
+                    } label: {
+                        Text("削除")
+                            .frame(width: 150, height: 30)
+                            .font(.system(size: 17, weight: .bold))
+                            .padding(8)
+                            .background(.themaBlack)
+                            .foregroundStyle(.white)
+                            .fontWeight(.bold)
+                            .cornerRadius(8)
+                    }.padding(.top)
+                   
+                    Spacer()
                 }
             
-            
-                Button {
-                    showDeleteConfirmAlert = true
-                } label: {
-                    Text("削除")
-                        .frame(width: 150, height: 30)
-                        .font(.system(size: 17, weight: .bold))
-                        .padding(8)
-                        .background(.themaBlack)
-                        .foregroundStyle(.white)
-                        .fontWeight(.bold)
-                        .cornerRadius(8)
-                }.padding(.top)
-               
-                Spacer()
-            }
-        
-            
-        }.foregroundStyle(.exText)
-            .navigationBarBackButtonHidden()
-            .fullScreenCover(isPresented: $showEditView) {
-                InputCategoryView(category: category)
-                    .environmentObject(rootEnvironment)
-            }.alert(
-                isPresented: $showDeleteConfirmAlert,
-                title: "確認",
-                message: "このカテゴリを削除しますか？",
-                positiveButtonTitle: "削除",
-                negativeButtonTitle: "キャンセル",
-                positiveButtonRole: .destructive,
-                positiveAction: {
-                    rootEnvironment.deleteCategory(category)
-                    presentationMode.wrappedValue.dismiss()
-                }
-            )
+                
+            }.foregroundStyle(.exText)
+                .navigationBarBackButtonHidden()
+                .fullScreenCover(isPresented: $showEditView) {
+                    InputCategoryView(category: category)
+                        .environmentObject(rootEnvironment)
+                }.alert(
+                    isPresented: $showDeleteConfirmAlert,
+                    title: "確認",
+                    message: "このカテゴリを削除しますか？",
+                    positiveButtonTitle: "削除",
+                    negativeButtonTitle: "キャンセル",
+                    positiveButtonRole: .destructive,
+                    positiveAction: {
+                        rootEnvironment.deleteCategory(category)
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                )
+        }
     }
 }
 
 #Preview {
-    DetailCategoryView(category: Category())
+    DetailCategoryView()
         .environmentObject(RootEnvironment())
 }
