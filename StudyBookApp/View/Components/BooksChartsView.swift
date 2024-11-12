@@ -13,7 +13,7 @@ struct BooksChartsView: View {
     private let df = DateFormatUtility(format: "M月")
     private let dfYear = DateFormatUtility(format: "YYYY年M月")
     public let booksDateDic: [Date: [Book]]
-    @State private var selectCharts: Int = 1
+    @State private var selectCharts: Int = 0
     
     init(booksDateDic: [Date: [Book]]) {
         self.booksDateDic = booksDateDic

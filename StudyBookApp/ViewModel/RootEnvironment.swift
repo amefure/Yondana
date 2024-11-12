@@ -177,6 +177,8 @@ extension RootEnvironment {
     }
     
     public func calcSumAmount(books: [Book]) -> Int {
-        books.reduce(0) { $0 + $1.amount }
+        let sum = books.reduce(0) { $0 + $1.amount }
+        if sum == -1 { return 0 }
+        return sum
     }
 }
