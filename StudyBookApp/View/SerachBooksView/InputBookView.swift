@@ -111,7 +111,7 @@ struct InputBookView: View {
                     }
                     
                     // MARK: 金額
-                    InputView(title: "書籍購入金額", placeholder: "2500円", text: $amount)
+                    InputView(title: "書籍購入金額", placeholder: "2500円", isOnlyNumber: true, text: $amount)
                     
                     // MARK: MEMO
                     InputEditView(title: "MEMO", text: $memo)

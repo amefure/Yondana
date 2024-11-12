@@ -24,7 +24,7 @@ struct CategoryLabelView: View {
             
             Spacer()
         }.padding(8)
-            .frame(width: 120, height: 30)
+            .frame(width: 150, height: 30)
             .background(.themaBlack)
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
