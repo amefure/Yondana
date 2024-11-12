@@ -43,11 +43,11 @@ struct BooksChartsView: View {
             
             HStack {
                 
-                Button {
-                    
-                } label: {
-                    Image(systemName: "chevron.backward")
-                }
+//                Button {
+//                    
+//                } label: {
+//                    Image(systemName: "chevron.backward")
+//                }
                 
                 let dates = Array(booksDateDic.keys)
                 if let minDate = dates.min(),
@@ -55,11 +55,11 @@ struct BooksChartsView: View {
                     Text(dfYear.getString(date: minDate) + "〜" + dfYear.getString(date: maxDate))
                 }
                 
-                Button {
-                    
-                } label: {
-                    Image(systemName: "chevron.forward")
-                }
+//                Button {
+//                    
+//                } label: {
+//                    Image(systemName: "chevron.forward")
+//                }
             }
             
             /// https://qiita.com/yamakentoc/items/55a7d7264691b2caf592#%E3%83%A9%E3%83%99%E3%83%AB

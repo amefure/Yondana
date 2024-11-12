@@ -32,7 +32,7 @@ struct RootView: View {
                 Spacer()
           
                 NavigationLink {
-                    
+                    SettingView()
                 } label: {
                     Image(systemName: "gearshape")
                         .fontL(bold: true)

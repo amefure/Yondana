@@ -20,14 +20,15 @@ struct DetailBookView: View {
     @State private var title: String = ""
     @State private var content: String = ""
     
-    @Environment(\.dismiss) private var dismiss
+    // dismissで実装するとCPUがオーバーフローする
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack {
             HeaderView(
                 leadingIcon: "chevron.backward",
                 trailingIcon: "square.and.pencil",
                 leadingAction: {
-                    dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 },
                 trailingAction: {
                     showEditView = true
@@ -94,7 +95,7 @@ struct DetailBookView: View {
                 positiveButtonRole: .destructive,
                 positiveAction: {
                     rootEnvironment.deleteBook(book)
-                    dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 }
             )
    

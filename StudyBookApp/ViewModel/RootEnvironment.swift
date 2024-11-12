@@ -93,7 +93,13 @@ extension RootEnvironment {
     }
     
     public func deleteBook(_ book: Book) {
-        realmRepository.removeObjs(list: [book])
+        /// ローカルにサムネイル画像を保存する
+        AppManager.sharedImageFileManager.deleteImage(name: book.id)
+            .sink { _ in } receiveValue: { [weak self] _ in
+                guard let self else { return }
+                // 成功してからローカルに保存する
+                self.realmRepository.removeObjs(list: [book])
+            }.store(in: &cancellables)
     }
     
     public func deleteAllBooks() {
@@ -137,6 +143,9 @@ extension RootEnvironment {
     
     
     public func deleteCategory(_ category: Category) {
+        category.books.forEach {
+            deleteBook($0)
+        }
         realmRepository.removeObjs(list: [category])
         fetchAllData()
     }

@@ -52,6 +52,9 @@
 		123088502CE217FE00455EC8 /* CustomNotifyDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1230884F2CE217FE00455EC8 /* CustomNotifyDialogView.swift */; };
 		123088522CE2183600455EC8 /* CustomPopUpDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088512CE2183600455EC8 /* CustomPopUpDialogView.swift */; };
 		123088542CE33D2C00455EC8 /* ExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088532CE33D2A00455EC8 /* ExView.swift */; };
+		123088562CE3778100455EC8 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088552CE3778100455EC8 /* SettingView.swift */; };
+		123088582CE377D900455EC8 /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088572CE377D700455EC8 /* StaticUrls.swift */; };
+		1230885A2CE3781300455EC8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123088592CE3781200455EC8 /* SettingViewModel.swift */; };
 		1252FDE82CDA506B007D23B9 /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDE72CDA5067007D23B9 /* ExString.swift */; };
 		1252FDEA2CDA5949007D23B9 /* DetailCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDE92CDA5948007D23B9 /* DetailCategoryView.swift */; };
 		1252FDEC2CDA5AE9007D23B9 /* BookGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */; };
@@ -108,6 +111,9 @@
 		1230884F2CE217FE00455EC8 /* CustomNotifyDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotifyDialogView.swift; sourceTree = "<group>"; };
 		123088512CE2183600455EC8 /* CustomPopUpDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUpDialogView.swift; sourceTree = "<group>"; };
 		123088532CE33D2A00455EC8 /* ExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExView.swift; sourceTree = "<group>"; };
+		123088552CE3778100455EC8 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		123088572CE377D700455EC8 /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
+		123088592CE3781200455EC8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		1252FDE72CDA5067007D23B9 /* ExString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExString.swift; sourceTree = "<group>"; };
 		1252FDE92CDA5948007D23B9 /* DetailCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryView.swift; sourceTree = "<group>"; };
 		1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridListView.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 			children = (
 				1221ECA32CD7339000F2A6E7 /* Book.swift */,
 				1221ECBC2CD7CE6800F2A6E7 /* Category.swift */,
+				123088572CE377D700455EC8 /* StaticUrls.swift */,
 				1221ECB52CD7A07C00F2A6E7 /* Error */,
 				1221ECA72CD74B0600F2A6E7 /* Config */,
 			);
@@ -205,6 +212,7 @@
 			children = (
 				1221EC4E2CD6749C00F2A6E7 /* StudyBookAppApp.swift */,
 				1221EC4D2CD6749C00F2A6E7 /* RootView.swift */,
+				123088552CE3778100455EC8 /* SettingView.swift */,
 				123088482CE0F97900455EC8 /* Book */,
 				1221ECBF2CD7CEFC00F2A6E7 /* Category */,
 				1221ECBE2CD7CEEC00F2A6E7 /* SerachBooksView */,
@@ -218,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				1221EC502CD6749C00F2A6E7 /* RootEnvironment.swift */,
+				123088592CE3781200455EC8 /* SettingViewModel.swift */,
 				1221ECAC2CD7588300F2A6E7 /* SearchBooksViewModel.swift */,
 				1221ECC22CD84C7100F2A6E7 /* InputCategoryViewModel.swift */,
 				1221ECC62CD8AD6300F2A6E7 /* MyBookShelfViewModel.swift */,
@@ -539,6 +548,7 @@
 				123088502CE217FE00455EC8 /* CustomNotifyDialogView.swift in Sources */,
 				1252FDEA2CDA5949007D23B9 /* DetailCategoryView.swift in Sources */,
 				1252FDEC2CDA5AE9007D23B9 /* BookGridListView.swift in Sources */,
+				1230885A2CE3781300455EC8 /* SettingViewModel.swift in Sources */,
 				1221EC5C2CD6749C00F2A6E7 /* DeviceSizeUtility.swift in Sources */,
 				1221ECA92CD74B0B00F2A6E7 /* RealmConfig.swift in Sources */,
 				1221ECA22CD731BA00F2A6E7 /* GoogleBooksAPIRepository.swift in Sources */,
@@ -552,9 +562,11 @@
 				123088412CE08B9200455EC8 /* LoadingView.swift in Sources */,
 				1221ECCF2CDA47BC00F2A6E7 /* BookThumbnailView.swift in Sources */,
 				1230884D2CE1187500455EC8 /* CategoryLabelView.swift in Sources */,
+				123088582CE377D900455EC8 /* StaticUrls.swift in Sources */,
 				123088432CE08F5F00455EC8 /* LoadingViewModel.swift in Sources */,
 				1221EC612CD6749C00F2A6E7 /* RepositoryDependency.swift in Sources */,
 				1221EC622CD6749C00F2A6E7 /* UserDefaultsRepository.swift in Sources */,
+				123088562CE3778100455EC8 /* SettingView.swift in Sources */,
 				1221ECB72CD7A08400F2A6E7 /* ImageError.swift in Sources */,
 				1221EC632CD6749C00F2A6E7 /* RootView.swift in Sources */,
 				1221EC642CD6749C00F2A6E7 /* StudyBookAppApp.swift in Sources */,

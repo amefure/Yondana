@@ -16,14 +16,16 @@ struct BookGridListView: View {
         return category == nil ? rootEnvironment.books : Array(category!.books)
     }
   
-    @Environment(\.dismiss) private var dismiss
+    // dismissで実装するとCPUがオーバーフローする
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
             if let category = category {
                 HeaderView(
                     leadingIcon: "chevron.backward",
                     leadingAction: {
-                        dismiss()
+                        presentationMode.wrappedValue.dismiss()
                     },
                     content: {
                         Text(category.name)
@@ -69,7 +71,6 @@ struct BookGridListView: View {
                 EmptyDataView()
             }
             
-           
         }.navigationBarBackButtonHidden()
     }
 }

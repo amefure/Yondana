@@ -20,7 +20,7 @@ struct CategoryListView: View {
         VStack {
             ZStack(alignment: .bottomTrailing) {
                 
-                if !rootEnvironment.categorys.isEmpty {
+                if !rootEnvironment.categorys.filter({ $0.id != Category.unSelectCategryID}).isEmpty {
                     List {
                         ForEach(rootEnvironment.categorys.filter({ $0.id != Category.unSelectCategryID}).sorted(by: { $0.name < $1.name})) { category in
                             Button {

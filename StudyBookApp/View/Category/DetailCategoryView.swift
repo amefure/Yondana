@@ -14,6 +14,7 @@ struct DetailCategoryView: View {
     public let category: Category
     @State private var showDesc: Bool = false
     @State private var showEditView: Bool = false
+    @State private var showDeleteConfirmAlert: Bool = false
 
     // dismissで実装するとCPUがオーバーフローする
     @Environment(\.presentationMode) var presentationMode
@@ -133,6 +134,19 @@ struct DetailCategoryView: View {
                         .roundedRectangleShadowBackView(height: 80)
                 }
             
+            
+                Button {
+                    showDeleteConfirmAlert = true
+                } label: {
+                    Text("削除")
+                        .frame(width: 150, height: 30)
+                        .font(.system(size: 17, weight: .bold))
+                        .padding(8)
+                        .background(.themaBlack)
+                        .foregroundStyle(.white)
+                        .fontWeight(.bold)
+                        .cornerRadius(8)
+                }.padding(.top)
                
                 Spacer()
             }
@@ -143,7 +157,18 @@ struct DetailCategoryView: View {
             .fullScreenCover(isPresented: $showEditView) {
                 InputCategoryView(category: category)
                     .environmentObject(rootEnvironment)
-            }
+            }.alert(
+                isPresented: $showDeleteConfirmAlert,
+                title: "確認",
+                message: "このカテゴリを削除しますか？",
+                positiveButtonTitle: "削除",
+                negativeButtonTitle: "キャンセル",
+                positiveButtonRole: .destructive,
+                positiveAction: {
+                    rootEnvironment.deleteCategory(category)
+                    presentationMode.wrappedValue.dismiss()
+                }
+            )
     }
 }
 

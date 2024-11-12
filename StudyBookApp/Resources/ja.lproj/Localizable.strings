@@ -9,3 +9,13 @@
 // MARK: - Loacle
 "date_locale" = "ja_JP";
 "date_timezone" = "Asia/Tokyo";
+
+// MARK: - Setting
+"setting_title" = "設定";
+"setting_section_link_title" = "Link";
+"setting_section_link_review" = "アプリをレビューする";
+"setting_section_link_recommend" = "「YONDANA」をオススメする";
+"setting_section_link_share_text" = "参考書を記録できるアプリだよ♫";
+"setting_section_link_contact" = "アプリの不具合はこちら";
+"setting_section_link_terms" = "利用規約とプライバシーポリシー";
+"setting_section_link_desc" = "・アプリに不具合がございましたら「アプリの不具合はこちら」よりお問い合わせください。";
