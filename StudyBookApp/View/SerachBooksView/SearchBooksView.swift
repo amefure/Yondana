@@ -154,7 +154,7 @@ fileprivate struct RowBooksView: View {
             }
         }.padding(10)
             .fullScreenCover(isPresented: $showSearchView) {
-                SelectCategoryView(book: book, isSave: $isClick)
+                InputBookView(book: book, forAPI: true, isSave: $isClick)
                     .environmentObject(rootEnvironment)
             }
     }

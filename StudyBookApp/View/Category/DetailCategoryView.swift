@@ -128,7 +128,6 @@ struct DetailCategoryView: View {
                 .padding(.vertical)
                 
         
-            //Text(rootEnvironment.calcSumAmount(books: category.books) + "円")
             
             
             Spacer()

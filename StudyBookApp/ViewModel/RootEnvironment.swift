@@ -64,16 +64,32 @@ extension RootEnvironment {
                 // 成功してからローカルに保存する
                 self.addBookInCategory(categoryId: book.categoryId, book: book)
             }.store(in: &cancellables)
-    
     }
     
-    public func filteringAllBooks(categoryId: String) {
-        books = realmRepository.readAllObjs()
-        //books = books.filter { $0.categoryId == categoryId}
-    }
-    
-    public func updateBook(id: String, book: Book) {
-      //  realmRepository.updateBook(id: id, newBook: book)
+    public func updateBook(newCategoryId: ObjectId, oldCategoryId: ObjectId, bookId: String, updateBook: Book) {
+        // カテゴリの変更がない場合
+        if newCategoryId == oldCategoryId {
+            realmRepository.updateObject(Category.self, id: oldCategoryId) { category in
+                if let book = category.books.first(where: { $0.id == bookId }) {
+                    book.title = updateBook.title
+                    book.authors = updateBook.authors
+                    book.desc = updateBook.desc
+                    book.createdAt = updateBook.createdAt
+                    book.amount = updateBook.amount
+                    book.memo = updateBook.memo
+                }
+            }
+        } else {
+            // 変更された場合はBookをローカルから削除する
+            // この段階で古いCategoryのbooksプロパティからも削除される
+            realmRepository.removeObjs(list: [updateBook])
+            // 新しい方へ登録する
+            realmRepository.updateObject(Category.self, id: newCategoryId) { category in
+                category.books.append(updateBook)
+            }
+        }
+       
+        fetchAllData()
     }
     
     public func deleteBook(_ book: Book) {
