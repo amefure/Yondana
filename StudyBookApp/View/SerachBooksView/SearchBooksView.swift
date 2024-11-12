@@ -84,7 +84,7 @@ struct SearchBooksView: View {
                             .foregroundColor(.white)
                             
                     }.shadow(color: .gray,radius: 3, x: 2, y: 2)
-            }
+            }.buttonStyle(.plain)
         }.transition(.scale)
             .padding()
     }
