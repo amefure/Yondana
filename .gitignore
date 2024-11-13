@@ -44,6 +44,9 @@ Pods
 GoogleService-Info.plist
 StudyBookApp/View/Components/UIParts/AdMobView.swift
 
+# Secret
+StudyBookApp/Model/AppStaticKey.swift
+
 # Carthage
 Carthage/Build/
 

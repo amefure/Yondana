@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class StaticUrls {
     /// アプリURL
     static let APP_URL = "https://apps.apple.com/jp/app/keep-plank/id6670267717"

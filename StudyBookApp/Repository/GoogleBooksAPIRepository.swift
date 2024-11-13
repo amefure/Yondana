@@ -19,7 +19,7 @@ class GoogleBooksAPIRepository {
     /// 最大取得数制限
     private let max: String = "maxResults=30"
     /// APIキー https://qiita.com/ryamate/items/2a0cba391829e20009aa
-    private let apiKey: String = ""
+    private let apiKey: String = AppStaticKey.GOOGLE_BOOK_API_KEY
     /// キーワードクエリ
     private let query: String = "&q="
 
