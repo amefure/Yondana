@@ -54,17 +54,17 @@ struct DetailBookView: View {
                     
                 }.padding()
                 
-                ItemTextView(title: "タイトル", content: book.title, isAlert: $isAlert, msgTitle: $title, msgContent: $content)
+                ItemTextPopUpView(title: "タイトル", content: book.title, isAlert: $isAlert, msgTitle: $title, msgContent: $content)
                 
-                ItemTextView(title: "著者", content: book.concatenationAuthors, isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
+                ItemTextPopUpView(title: "著者", content: book.concatenationAuthors, isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
                 
-                ItemTextView(title: "概要", content: book.desc, isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
+                ItemTextPopUpView(title: "概要", content: book.desc, isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
                 
-                ItemTextView(title: "登録日時", content: DateFormatUtility().getString(date: book.createdAt), isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
+                ItemTextPopUpView(title: "登録日時", content: DateFormatUtility().getString(date: book.createdAt), isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
                 
-                ItemTextView(title: "購入金額", content: book.amount == -1 ? "ー" : "\(book.amount)円", isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
+                ItemTextPopUpView(title: "購入金額", content: book.amount == -1 ? "ー" : "\(book.amount)円", isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
                 
-                ItemTextView(title: "MEMO", content: book.memo, isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
+                ItemTextPopUpView(title: "MEMO", content: book.memo, isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
                 
                 Button {
                     showDeleteConfirmAlert = true
@@ -95,31 +95,14 @@ struct DetailBookView: View {
     }
 }
 
-private struct ItemTextView: View {
+private struct ItemTextPopUpView: View {
     public let title: String
     public let content: String
     @Binding var isAlert: Bool
     @Binding var msgTitle: String
     @Binding var msgContent: String
     var body: some View {
-        VStack(spacing: 0) {
-            Text(title)
-                .fontS(bold: true)
-                .frame(width: DeviceSizeUtility.deviceWidth - 40, alignment: .leading)
-            
-            Rectangle()
-                .frame(width: DeviceSizeUtility.deviceWidth - 40, height: 2)
-                .tint(.exText)
-                .opacity(0.5)
-                .padding(.vertical, 5)
-                
-            Text(content)
-                .fontM(bold: true)
-                .frame(width: DeviceSizeUtility.deviceWidth - 40, alignment: .leading)
-                .textSelection(.enabled)
-                .lineLimit(3)
-        }.foregroundStyle(.exText)
-            .padding(.bottom)
+        ItemTextView(title: title, content: content)
             .onTapGesture {
                 guard !content.isEmpty else { return }
                 msgTitle = title

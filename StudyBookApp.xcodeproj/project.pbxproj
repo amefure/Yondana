@@ -63,6 +63,8 @@
 		1252FDEC2CDA5AE9007D23B9 /* BookGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */; };
 		1252FDEE2CDA5BC7007D23B9 /* ExModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDED2CDA5BC7007D23B9 /* ExModifier.swift */; };
 		128857692CDE162500703F49 /* DetailBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128857682CDE162500703F49 /* DetailBookView.swift */; };
+		1289C4662CE605830087E637 /* AllBookDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C4652CE605830087E637 /* AllBookDataView.swift */; };
+		1289C4682CE61D130087E637 /* ItemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C4672CE61D130087E637 /* ItemTextView.swift */; };
 		1294643C2CDF9B5500A30FC8 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294643B2CDF9B5500A30FC8 /* EmptyDataView.swift */; };
 		1294643E2CDF9D0400A30FC8 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294643D2CDF9D0100A30FC8 /* APIError.swift */; };
 		129464402CDFA0AF00A30FC8 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294643F2CDFA0AF00A30FC8 /* ErrorView.swift */; };
@@ -127,6 +129,8 @@
 		126B41432CD66D1D00ECAE88 /* StudyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1276D96CAE976ACC5DF2DD5C /* Pods_StudyBookApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBookApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		128857682CDE162500703F49 /* DetailBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookView.swift; sourceTree = "<group>"; };
+		1289C4652CE605830087E637 /* AllBookDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBookDataView.swift; sourceTree = "<group>"; };
+		1289C4672CE61D130087E637 /* ItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTextView.swift; sourceTree = "<group>"; };
 		1294643B2CDF9B5500A30FC8 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		1294643D2CDF9D0100A30FC8 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1294643F2CDFA0AF00A30FC8 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -336,6 +340,7 @@
 			children = (
 				1221ECC42CD8AC8700F2A6E7 /* MyBookShelfView.swift */,
 				128857682CDE162500703F49 /* DetailBookView.swift */,
+				1289C4652CE605830087E637 /* AllBookDataView.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				1230884C2CE1187500455EC8 /* CategoryLabelView.swift */,
+				1289C4672CE61D130087E637 /* ItemTextView.swift */,
 				1230885E2CE39E3200455EC8 /* AdMobView.swift */,
 			);
 			path = UIParts;
@@ -561,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1289C4682CE61D130087E637 /* ItemTextView.swift in Sources */,
 				1221ECAD2CD7588500F2A6E7 /* SearchBooksViewModel.swift in Sources */,
 				1221EC5B2CD6749C00F2A6E7 /* DateFormatUtility.swift in Sources */,
 				123088502CE217FE00455EC8 /* CustomNotifyDialogView.swift in Sources */,
@@ -599,6 +606,7 @@
 				1221ECB42CD799A700F2A6E7 /* ImageFileManager.swift in Sources */,
 				1221ECB02CD7944A00F2A6E7 /* NetWorkManager.swift in Sources */,
 				1294643E2CDF9D0400A30FC8 /* APIError.swift in Sources */,
+				1289C4662CE605830087E637 /* AllBookDataView.swift in Sources */,
 				123088452CE0F25900455EC8 /* ExInt.swift in Sources */,
 				1221ECC12CD7CF2D00F2A6E7 /* InputCategoryView.swift in Sources */,
 				1221ECBB2CD7CCAC00F2A6E7 /* TabViewLayout.swift in Sources */,
@@ -756,7 +764,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"StudyBookApp/Preview Content\"";
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				ENABLE_PREVIEWS = YES;
@@ -775,7 +783,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.StudyBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -795,7 +803,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"StudyBookApp/Preview Content\"";
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				ENABLE_PREVIEWS = YES;
@@ -814,7 +822,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.StudyBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

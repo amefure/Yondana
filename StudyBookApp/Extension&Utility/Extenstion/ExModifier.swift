@@ -38,6 +38,7 @@ struct RoundedRectangleButtonView: ViewModifier {
             .background(.themaBlack)
             .foregroundStyle(.white)
             .cornerRadius(8)
+            .shadow(color: .gray,radius: 3, x: 2, y: 2)
     }
 }
 

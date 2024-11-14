@@ -98,7 +98,7 @@ struct CategoryListView: View {
                     Image(systemName: "plus")
                         .roundedButtonView()
                 }.alignmentGuide(.trailing) { _ in 80 }
-                    .alignmentGuide(.bottom) { _ in 40 }
+                    .alignmentGuide(.bottom) { _ in DeviceSizeUtility.isSESize ? 40 : 60 }
             }
         }.sheet(isPresented: $showSearchView) {
             InputCategoryView()

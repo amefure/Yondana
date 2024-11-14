@@ -9,7 +9,7 @@ import UIKit
 
 class StaticUrls {
     /// アプリURL
-    static let APP_URL = "https://apps.apple.com/jp/app/keep-plank/id6670267717"
+    static let APP_URL = "https://apps.apple.com/jp/app/yondana-%E5%8F%82%E8%80%83%E6%9B%B8%E7%AE%A1%E7%90%86%E3%82%A2%E3%83%97%E3%83%AA/id6738094369"
     /// レビュー
     static let APP_REVIEW_URL = APP_URL + "?action=write-review"
     ///  Webサイトルート

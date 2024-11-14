@@ -14,7 +14,7 @@ class RootEnvironment: ObservableObject {
     
     static let shared = RootEnvironment()
     
-    
+    private let df = DateFormatUtility()
     
     @Published private(set) var categorys: [Category] = []
     @Published private(set) var books: [Book] = []
@@ -158,10 +158,16 @@ extension RootEnvironment {
         realmRepository.removeObjs(list: categorys)
     }
     
-   
+    /// 金額の合計
     public func calcSumAmount(books: [Book]) -> Int {
         let sum = books.reduce(0) { $0 + $1.amount }
         if sum == -1 { return 0 }
         return sum
+    }
+    
+    /// 一番新しい登録日付を取得
+    public func getLatestDay(books: [Book]) -> String {
+        guard let latestBook = books.max(by: { $0.createdAt < $1.createdAt }) else { return "データがありません。" }
+        return df.getString(date:  latestBook.createdAt)
     }
 }

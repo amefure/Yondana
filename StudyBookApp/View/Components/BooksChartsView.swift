@@ -96,7 +96,7 @@ struct BooksChartsView: View {
                     }
                  
                 }
-            }.frame(width: DeviceSizeUtility.deviceWidth - 40, height: 200)
+            }.frame(width: DeviceSizeUtility.deviceWidth - 80, height: 200)
                 .chartXAxis {
                     // aligned → グラフ線にラベルを合わせる
                     // values: .automatic(desiredCount:) → ラベルの数を明示的に指定

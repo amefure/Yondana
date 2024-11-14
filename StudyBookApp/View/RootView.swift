@@ -22,6 +22,19 @@ struct RootView: View {
                     Image(systemName: mode ? "folder" : "rectangle.grid.3x2")
                         .fontL(bold: true)
                         .foregroundStyle(.themaBlack)
+                }.frame(width: 30)
+                    .padding(.trailing)
+                
+                if mode {
+                    NavigationLink {
+                        AllBookDataView()
+                            .environmentObject(rootEnvironment)
+                    } label: {
+                        Image(systemName: "chart.bar")
+                            .fontL(bold: true)
+                            .foregroundStyle(.themaBlack)
+                            .frame(width: 30)
+                    }.frame(width: 30)
                 }
                 
                 Spacer()
@@ -31,6 +44,11 @@ struct RootView: View {
                     .foregroundStyle(.themaBlack)
                 
                 Spacer()
+                
+                if mode {
+                    Spacer()
+                        .frame(width: 30)
+                }
           
                 NavigationLink {
                     SettingView()
@@ -38,8 +56,9 @@ struct RootView: View {
                     Image(systemName: "gearshape")
                         .fontL(bold: true)
                         .foregroundStyle(.themaBlack)
-                }
-            }.padding(.horizontal, 30)
+                }.frame(width: 30)
+                    .padding(.leading)
+            }.padding(.horizontal)
                 .padding(.vertical, 10)
             
             if mode  {

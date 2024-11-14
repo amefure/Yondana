@@ -69,6 +69,7 @@ struct SearchBooksView: View {
                 .roundedRectangleShadowBackView(width: DeviceSizeUtility.deviceWidth - 70, height: 50)
                 
             Button {
+                UIApplication.shared.closeKeyboard()
                 guard !keyword.isEmpty else { return }
                 viewModel.fetchBooks(keyword: keyword)
             } label: {

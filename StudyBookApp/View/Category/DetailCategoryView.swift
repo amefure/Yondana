@@ -125,7 +125,7 @@ struct DetailCategoryView: View {
                         
                     VStack(alignment: .leading) {
                         Text("累計金額")
-                        
+                            .fontM()
                         Text("\(rootEnvironment.calcSumAmount(books: Array(category.books)))円")
                             .fontL(bold: true)
                             .roundedRectangleShadowBackView(height: 80)
