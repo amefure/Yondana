@@ -64,6 +64,8 @@ struct DetailBookView: View {
                 
                 ItemTextPopUpView(title: "購入金額", content: book.amount == -1 ? "ー" : "\(book.amount)円", isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
                 
+                ItemTextPopUpView(title: "ISBN", content: book.ISBN_13, isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
+                
                 ItemTextPopUpView(title: "MEMO", content: book.memo, isAlert: $isAlert,  msgTitle: $title, msgContent: $content)
                 
                 Button {
@@ -73,7 +75,7 @@ struct DetailBookView: View {
                         .roundedRectangleButtonView()
                 }
                 
-            }
+            }.padding(.bottom)
             
         }.navigationBarBackButtonHidden()
             .fullScreenCover(isPresented: $showEditView) {
