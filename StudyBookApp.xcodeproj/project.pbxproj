@@ -65,6 +65,9 @@
 		128857692CDE162500703F49 /* DetailBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128857682CDE162500703F49 /* DetailBookView.swift */; };
 		1289C4662CE605830087E637 /* AllBookDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C4652CE605830087E637 /* AllBookDataView.swift */; };
 		1289C4682CE61D130087E637 /* ItemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C4672CE61D130087E637 /* ItemTextView.swift */; };
+		1289C4872CEF68250087E637 /* ScanBarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C4862CEF68240087E637 /* ScanBarCodeView.swift */; };
+		1289C4892CEF7A650087E637 /* CameraFunctionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C4882CEF79AF0087E637 /* CameraFunctionRepository.swift */; };
+		1289C48B2CEF81220087E637 /* ScanBarCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C48A2CEF81220087E637 /* ScanBarCodeViewModel.swift */; };
 		1294643C2CDF9B5500A30FC8 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294643B2CDF9B5500A30FC8 /* EmptyDataView.swift */; };
 		1294643E2CDF9D0400A30FC8 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294643D2CDF9D0100A30FC8 /* APIError.swift */; };
 		129464402CDFA0AF00A30FC8 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294643F2CDFA0AF00A30FC8 /* ErrorView.swift */; };
@@ -131,6 +134,9 @@
 		128857682CDE162500703F49 /* DetailBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookView.swift; sourceTree = "<group>"; };
 		1289C4652CE605830087E637 /* AllBookDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBookDataView.swift; sourceTree = "<group>"; };
 		1289C4672CE61D130087E637 /* ItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTextView.swift; sourceTree = "<group>"; };
+		1289C4862CEF68240087E637 /* ScanBarCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBarCodeView.swift; sourceTree = "<group>"; };
+		1289C4882CEF79AF0087E637 /* CameraFunctionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFunctionRepository.swift; sourceTree = "<group>"; };
+		1289C48A2CEF81220087E637 /* ScanBarCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBarCodeViewModel.swift; sourceTree = "<group>"; };
 		1294643B2CDF9B5500A30FC8 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		1294643D2CDF9D0100A30FC8 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1294643F2CDFA0AF00A30FC8 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 			children = (
 				1221EC452CD6749C00F2A6E7 /* DI */,
 				1221EC462CD6749C00F2A6E7 /* UserDefaultsRepository.swift */,
+				1289C4882CEF79AF0087E637 /* CameraFunctionRepository.swift */,
 				1221ECA52CD7368900F2A6E7 /* RelamRepository.swift */,
 				1221ECA12CD731B800F2A6E7 /* GoogleBooksAPIRepository.swift */,
 			);
@@ -242,6 +249,7 @@
 				1221ECC22CD84C7100F2A6E7 /* InputCategoryViewModel.swift */,
 				1221ECC62CD8AD6300F2A6E7 /* BooksChartsViewModel.swift */,
 				123088422CE08F5D00455EC8 /* LoadingViewModel.swift */,
+				1289C48A2CEF81220087E637 /* ScanBarCodeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 			children = (
 				1221ECAA2CD7586700F2A6E7 /* SearchBooksView.swift */,
 				1221ECCA2CD9F90800F2A6E7 /* InputBookView.swift */,
+				1289C4862CEF68240087E637 /* ScanBarCodeView.swift */,
 			);
 			path = SerachBooksView;
 			sourceTree = "<group>";
@@ -569,6 +578,7 @@
 			files = (
 				1289C4682CE61D130087E637 /* ItemTextView.swift in Sources */,
 				1221ECAD2CD7588500F2A6E7 /* SearchBooksViewModel.swift in Sources */,
+				1289C48B2CEF81220087E637 /* ScanBarCodeViewModel.swift in Sources */,
 				1221EC5B2CD6749C00F2A6E7 /* DateFormatUtility.swift in Sources */,
 				123088502CE217FE00455EC8 /* CustomNotifyDialogView.swift in Sources */,
 				1252FDEA2CDA5949007D23B9 /* DetailCategoryView.swift in Sources */,
@@ -591,12 +601,14 @@
 				123088582CE377D900455EC8 /* StaticUrls.swift in Sources */,
 				123088432CE08F5F00455EC8 /* LoadingViewModel.swift in Sources */,
 				1221EC612CD6749C00F2A6E7 /* RepositoryDependency.swift in Sources */,
+				1289C4892CEF7A650087E637 /* CameraFunctionRepository.swift in Sources */,
 				1221EC622CD6749C00F2A6E7 /* UserDefaultsRepository.swift in Sources */,
 				123088562CE3778100455EC8 /* SettingView.swift in Sources */,
 				1221ECB72CD7A08400F2A6E7 /* ImageError.swift in Sources */,
 				1221EC632CD6749C00F2A6E7 /* RootView.swift in Sources */,
 				1221EC642CD6749C00F2A6E7 /* StudyBookAppApp.swift in Sources */,
 				123088542CE33D2C00455EC8 /* ExView.swift in Sources */,
+				1289C4872CEF68250087E637 /* ScanBarCodeView.swift in Sources */,
 				1221ECBD2CD7CE6C00F2A6E7 /* Category.swift in Sources */,
 				1221ECA42CD7339100F2A6E7 /* Book.swift in Sources */,
 				1221ECC52CD8AC8700F2A6E7 /* MyBookShelfView.swift in Sources */,
@@ -773,11 +785,13 @@
 				INFOPLIST_FILE = StudyBookApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YONDANA;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "書籍のバーコードを読み取るために使用します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -812,11 +826,13 @@
 				INFOPLIST_FILE = StudyBookApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YONDANA;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "書籍のバーコードを読み取るために使用します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

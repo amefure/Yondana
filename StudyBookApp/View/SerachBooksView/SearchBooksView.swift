@@ -12,8 +12,15 @@ struct SearchBooksView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
 
     @State private var keyword: String = ""
+    @State var showSearchView = false
 
     @Environment(\.dismiss) private var dismiss
+    
+    private func searchBooks() {
+        UIApplication.shared.closeKeyboard()
+        guard !keyword.isEmpty else { return }
+        viewModel.fetchBooks(keyword: keyword)
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -59,21 +66,34 @@ struct SearchBooksView: View {
             }
         }.onAppear { viewModel.onAppear(isSaveBooks: rootEnvironment.books) }
             .onDisappear { viewModel.onDisappear() }
+            .fullScreenCover(isPresented: $showSearchView) {
+                ScanBarCodeView(keyword: $keyword)
+                    .environmentObject(rootEnvironment)
+            }.onChange(of: showSearchView) { _, newValue in
+                // falseになったとき かつ keywordに値があるなら検索を実行する
+                guard !showSearchView && !keyword.isEmpty else { return }
+                searchBooks()
+            }
     }
     
     private func searchTextFieldView() -> some View {
         HStack {
             TextField("タイトル/著者/ISBN...で検索", text: $keyword)
-                .fontL(bold: true)
+                .fontS(bold: true)
                 .foregroundStyle(.exText)
-                .roundedRectangleShadowBackView(width: DeviceSizeUtility.deviceWidth - 70, height: 50)
+                .roundedRectangleShadowBackView(width: DeviceSizeUtility.deviceWidth - 120, height: 50)
                 
             Button {
-                UIApplication.shared.closeKeyboard()
-                guard !keyword.isEmpty else { return }
-                viewModel.fetchBooks(keyword: keyword)
+                searchBooks()
             } label: {
                 Image(systemName: "magnifyingglass")
+                    .roundedButtonView()
+            }.buttonStyle(.plain)
+            
+            Button {
+                showSearchView = true
+            } label: {
+                Image(systemName: "barcode.viewfinder")
                     .roundedButtonView()
             }.buttonStyle(.plain)
         }.transition(.scale)

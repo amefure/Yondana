@@ -19,7 +19,7 @@ struct EmptyDataView: View {
                 .frame(width: 300)
             
             Text(text)
-                .fontL(bold: true)
+                .fontM(bold: true)
                 .foregroundStyle(.exText)
             
             Spacer()

@@ -14,8 +14,8 @@ extension View {
         message: String,
         positiveButtonTitle: String = "",
         negativeButtonTitle: String = "",
-        positiveButtonRole: ButtonRole = .cancel,
-        negativeButtonRole: ButtonRole = .cancel,
+        positiveButtonRole: ButtonRole? = .cancel,
+        negativeButtonRole: ButtonRole? = .cancel,
         positiveAction: @escaping () -> Void = {},
         negativeAction: @escaping () -> Void = {}
     )  -> some View {
