@@ -36,12 +36,16 @@ class ScanBarCodeViewModel: ObservableObject {
         }.store(in: &cancellables)
         
         // 権限が許可されているならカメラをセット
-        if allowedRequestStatus() {
-            cameraRepository.prepareSetting()
-            startSession()
-        } else {
-            showRequestAllowed = true
+        allowedRequestStatus { [weak self] result in
+            guard let self else { return }
+            if result {
+                self.cameraRepository.prepareSetting()
+                self.startSession()
+            } else {
+                self.showRequestAllowed = true
+            }
         }
+        
     }
     
     public func onDisappear() {
@@ -68,21 +72,19 @@ extension ScanBarCodeViewModel {
     }
     
     /// カメラ利用の承認申請アラート表示メソッド
-    private func allowedRequestStatus() -> Bool {
-        var avState = false
+    private func allowedRequestStatus(completion: @escaping (Bool) -> Void) {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
-            avState = true
+            completion(true)
             break
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
-                avState = granted
+                completion(granted)
             })
         default:
-            avState =  false
+            completion(false)
             break
         }
-        return avState
     }
     
     ///

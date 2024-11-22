@@ -56,8 +56,8 @@ struct ScanBarCodeView: View {
                 dismiss()
             }.alert(
                 isPresented: $viewModel.showRequestAllowed,
-                title: "確認",
-                message: "設定アプリからカメラの権限を許可してください。",
+                title: "お願い",
+                message: "設定アプリからカメラの権限を許可しないとバーコード読み取り機能はご使用できません。",
                 positiveButtonTitle: "設定を開く",
                 negativeButtonTitle: "キャンセル",
                 positiveButtonRole: nil,

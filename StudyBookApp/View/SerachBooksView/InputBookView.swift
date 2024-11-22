@@ -91,23 +91,23 @@ struct InputBookView: View {
                         InputView(title: "著者", placeholder: "", text: $authors)
                         // MARK: 概要
                         InputEditView(title: "概要", text: $desc)
-                        // MARK: 登録日時
-                        Text("登録日時")
-                            .fontM(bold: true)
-                        HStack {
-                            Spacer()
-                            DatePicker(
-                                selection: $createdAt,
-                                displayedComponents: [.date],
-                                label: { Text("登録日時") }
-                            ).labelsHidden()
-                                .datePickerStyle(.compact)
-                                .colorInvert()
-                                .colorMultiply(.themaBlack)
-                                .tint(.themaBlack)
-                            Spacer()
-                        }
-                        
+                    }
+                    
+                    // MARK: 登録日時
+                    Text("登録日時")
+                        .fontM(bold: true)
+                    HStack {
+                        Spacer()
+                        DatePicker(
+                            selection: $createdAt,
+                            displayedComponents: [.date],
+                            label: { Text("登録日時") }
+                        ).labelsHidden()
+                            .datePickerStyle(.compact)
+                            .colorInvert()
+                            .colorMultiply(.themaBlack)
+                            .tint(.themaBlack)
+                        Spacer()
                     }
                     
                     // MARK: 金額
