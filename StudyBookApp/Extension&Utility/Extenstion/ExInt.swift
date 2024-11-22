@@ -5,6 +5,8 @@
 //  Created by t&a on 2024/11/10.
 //
 
+import Foundation
+
 extension Int {
     
     /// 数値を金額`n千円/n万円 形式`に変換する
@@ -20,5 +22,14 @@ extension Int {
             // 1千円未満の場合はそのまま円で返す
             return "\(self)円"
         }
+    }
+    
+    public func toAmountString() -> String {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.groupingSize = 3
+        nf.groupingSeparator = ","
+        let result = nf.string(from: NSNumber(integerLiteral: self)) ?? "\(self)"
+        return result
     }
 }

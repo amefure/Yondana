@@ -38,7 +38,7 @@ struct AllBookDataView: View {
                
                 ItemTextView(title: "合計冊数", content: "\(rootEnvironment.books.count)冊", contentAlignment: .center)
                 
-                ItemTextView(title: "累計金額", content: "\(rootEnvironment.calcSumAmount(books: rootEnvironment.books))円", contentAlignment: .center)
+                ItemTextView(title: "累計金額", content: "\(rootEnvironment.calcSumAmount(books: rootEnvironment.books).toAmountString())円", contentAlignment: .center)
                 
                 ItemTextView(title: "最終登録日", content: rootEnvironment.getLatestDay(books: rootEnvironment.books), contentAlignment: .center)
               
