@@ -25,12 +25,12 @@ struct BooksChartsView: View {
     private func setUpSegmentedPicker() {
         let appearance = UISegmentedControl.appearance()
         // 選択しているアイテムの背景色ex_text
-        appearance.selectedSegmentTintColor = .themaBlack
+        appearance.selectedSegmentTintColor = .exText
         let font = UIFont.boldSystemFont(ofSize: 17)
         // 未選択アイテムの文字属性
-        appearance.setTitleTextAttributes([.font: font, .foregroundColor: UIColor.themaBlack], for: .normal)
+        appearance.setTitleTextAttributes([.font: font, .foregroundColor: UIColor.exText], for: .normal)
         // 選択アイテムの文字属性
-        appearance.setTitleTextAttributes([.font: font, .foregroundColor: UIColor.white], for: .selected)
+        appearance.setTitleTextAttributes([.font: font, .foregroundColor: UIColor.exWhite], for: .selected)
     }
     
     

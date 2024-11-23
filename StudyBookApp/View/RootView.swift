@@ -21,7 +21,7 @@ struct RootView: View {
                 } label: {
                     Image(systemName: mode ? "folder" : "rectangle.grid.3x2")
                         .fontL(bold: true)
-                        .foregroundStyle(.themaBlack)
+                        .foregroundStyle(.exText)
                 }.frame(width: 30)
                     .padding(.trailing)
                 
@@ -32,7 +32,7 @@ struct RootView: View {
                     } label: {
                         Image(systemName: "chart.bar")
                             .fontL(bold: true)
-                            .foregroundStyle(.themaBlack)
+                            .foregroundStyle(.exText)
                             .frame(width: 30)
                     }.frame(width: 30)
                 }
@@ -41,7 +41,7 @@ struct RootView: View {
                 
                 Text(mode ? "ALL BOOKS" : "CATEGORYS")
                     .fontL(bold: true)
-                    .foregroundStyle(.themaBlack)
+                    .foregroundStyle(.exText)
                 
                 Spacer()
                 
@@ -55,7 +55,7 @@ struct RootView: View {
                 } label: {
                     Image(systemName: "gearshape")
                         .fontL(bold: true)
-                        .foregroundStyle(.themaBlack)
+                        .foregroundStyle(.exText)
                 }.frame(width: 30)
                     .padding(.leading)
             }.padding(.horizontal)

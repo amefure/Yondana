@@ -34,7 +34,6 @@
 		1221ECB22CD795DD00F2A6E7 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221ECB12CD795D900F2A6E7 /* AppManager.swift */; };
 		1221ECB42CD799A700F2A6E7 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221ECB32CD799A500F2A6E7 /* ImageFileManager.swift */; };
 		1221ECB72CD7A08400F2A6E7 /* ImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221ECB62CD7A08300F2A6E7 /* ImageError.swift */; };
-		1221ECBB2CD7CCAC00F2A6E7 /* TabViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221ECBA2CD7CCAC00F2A6E7 /* TabViewLayout.swift */; };
 		1221ECBD2CD7CE6C00F2A6E7 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221ECBC2CD7CE6800F2A6E7 /* Category.swift */; };
 		1221ECC12CD7CF2D00F2A6E7 /* InputCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221ECC02CD7CF2D00F2A6E7 /* InputCategoryView.swift */; };
 		1221ECC32CD84C7400F2A6E7 /* InputCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1221ECC22CD84C7100F2A6E7 /* InputCategoryViewModel.swift */; };
@@ -101,7 +100,6 @@
 		1221ECB12CD795D900F2A6E7 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		1221ECB32CD799A500F2A6E7 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		1221ECB62CD7A08300F2A6E7 /* ImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageError.swift; sourceTree = "<group>"; };
-		1221ECBA2CD7CCAC00F2A6E7 /* TabViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewLayout.swift; sourceTree = "<group>"; };
 		1221ECBC2CD7CE6800F2A6E7 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		1221ECC02CD7CF2D00F2A6E7 /* InputCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCategoryView.swift; sourceTree = "<group>"; };
 		1221ECC22CD84C7100F2A6E7 /* InputCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCategoryViewModel.swift; sourceTree = "<group>"; };
@@ -318,7 +316,6 @@
 		1221ECB92CD7CC9F00F2A6E7 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				1221ECBA2CD7CCAC00F2A6E7 /* TabViewLayout.swift */,
 				1221ECC82CD8FB4000F2A6E7 /* HeaderView.swift */,
 			);
 			path = Layout;
@@ -648,7 +645,6 @@
 				1289C4662CE605830087E637 /* AllBookDataView.swift in Sources */,
 				123088452CE0F25900455EC8 /* ExInt.swift in Sources */,
 				1221ECC12CD7CF2D00F2A6E7 /* InputCategoryView.swift in Sources */,
-				1221ECBB2CD7CCAC00F2A6E7 /* TabViewLayout.swift in Sources */,
 				1221ECCD2CDA329600F2A6E7 /* CategoryListView.swift in Sources */,
 				123088472CE0F44D00455EC8 /* BooksChartsView.swift in Sources */,
 				123088612CE451A200455EC8 /* AppStaticKey.swift in Sources */,
@@ -819,7 +815,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -860,7 +856,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -26,7 +26,7 @@ struct LoadingView: View {
                 ForEach(0..<6, id: \.self) { index in
                     Image(systemName: "book")
                         .fontL(bold: true)
-                        .foregroundStyle(.themaBlack)
+                        .foregroundStyle(.exText)
                         .offset(y: -viewModel.height)
                         .animation(.easeInOut(duration: 0.4).delay(0.1 * Double(index)), value: viewModel.height)
                 }

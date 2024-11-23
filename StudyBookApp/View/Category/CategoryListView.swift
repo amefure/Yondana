@@ -67,7 +67,7 @@ struct CategoryListView: View {
                                             
                                             ForEach(0..<3, id: \.self) { _ in
                                                 Circle()
-                                                    .fill(.themaBlack)
+                                                    .fill(.exText)
                                                     .frame(width: 4, height: 4)
                                             }
                                             
@@ -85,7 +85,7 @@ struct CategoryListView: View {
                             }.listRowSeparator(.hidden)
                         }
                     }.scrollContentBackground(.hidden)
-                        .background(.white)
+                        .background(.exSchemeBg)
                         .listStyle(.grouped)
                 } else {
                     EmptyDataView(text: "カテゴリがありません。")

@@ -58,7 +58,7 @@ struct SearchBooksView: View {
                     List(viewModel.books) { book in
                         RowBooksView(book: book)
                     }.scrollContentBackground(.hidden)
-                        .background(.white)
+                        .background(.exSchemeBg)
                         .listStyle(.grouped)
                 }
                 
@@ -149,14 +149,14 @@ fileprivate struct RowBooksView: View {
                             .font(.system(size: 14))
                             .fontWeight(.bold)
                             .padding(5)
-                            .foregroundColor(isClick ? .white : .themaBlack)
+                            .foregroundColor(isClick ? .exWhite : .exText)
                             .frame(width: 50)
-                            .background(isClick ? .themaBlack : .clear)
+                            .background(isClick ? .exText : .clear)
                             .cornerRadius(8)
                             .overlay {
                                 if !isClick {
                                     RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.themaBlack, lineWidth: 3)
+                                        .stroke(.exText, lineWidth: 3)
                                 }
                             }
                     }.buttonStyle(.borderless)

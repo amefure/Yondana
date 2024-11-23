@@ -95,7 +95,7 @@ struct SettingView: View {
                     }
                 }
             }.scrollContentBackground(.hidden)
-                .background(.white)
+                .background(.exSchemeBg)
             
         }.foregroundStyle(.exText)
             .navigationBarBackButtonHidden()

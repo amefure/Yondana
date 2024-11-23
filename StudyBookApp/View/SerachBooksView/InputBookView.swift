@@ -105,8 +105,8 @@ struct InputBookView: View {
                         ).labelsHidden()
                             .datePickerStyle(.compact)
                             .colorInvert()
-                            .colorMultiply(.themaBlack)
-                            .tint(.themaBlack)
+                            .colorMultiply(.exText)
+                            .tint(.exText)
                         Spacer()
                     }
                     

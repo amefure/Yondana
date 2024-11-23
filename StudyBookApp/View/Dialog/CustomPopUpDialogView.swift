@@ -27,19 +27,19 @@ struct CustomPopUpDialogView: View {
                 VStack(spacing: 0) {
                     Text(title)
                         .fontS(bold: true)
-                        .foregroundStyle(.exText)
+                        .foregroundStyle(.themaBlack)
                         .frame(width: DeviceSizeUtility.deviceWidth - 80, alignment: .leading)
                     
                     Rectangle()
                         .frame(width: DeviceSizeUtility.deviceWidth - 80, height: 2)
-                        .tint(.exText)
+                        .tint(.themaBlack)
                         .opacity(0.5)
                         .padding(.vertical, 5)
                     
                     ScrollView {
                         Text(message)
                             .fontM(bold: true)
-                            .foregroundStyle(.exText)
+                            .foregroundStyle(.themaBlack)
                             .frame(width: DeviceSizeUtility.deviceWidth - 80, alignment: .leading)
                     }
 

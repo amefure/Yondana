@@ -16,14 +16,16 @@ struct RoundedRectangleShadowBackView: ViewModifier {
         content
             .padding()
                 .frame(width: width, height: height)
-                .background(.white)
+                .background(.exWhite)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(.themaBlack, style: StrokeStyle(lineWidth: 2))
+                        .stroke(.exText, style: StrokeStyle(lineWidth: 2))
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .clipped()
                 .shadow(color: .gray, radius: 3, x: 2, y: 2)
+                .scrollContentBackground(.hidden) // TextEditor用
+                .background(.exWhite) // TextEditor用
     }
 }
 
@@ -37,6 +39,10 @@ struct RoundedRectangleButtonView: ViewModifier {
             .padding(8)
             .background(.themaBlack)
             .foregroundStyle(.white)
+            .overlay {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.exText, style: StrokeStyle(lineWidth: 2))
+            }
             .cornerRadius(8)
             .shadow(color: .gray,radius: 3, x: 2, y: 2)
     }

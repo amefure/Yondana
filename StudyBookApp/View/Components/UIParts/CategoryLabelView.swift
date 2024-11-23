@@ -27,6 +27,10 @@ struct CategoryLabelView: View {
             .frame(width: 150, height: 30)
             .background(.themaBlack)
             .clipShape(RoundedRectangle(cornerRadius: 8))
+            .overlay {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(.exText, style: StrokeStyle(lineWidth: 2))
+            }
     }
 }
 
