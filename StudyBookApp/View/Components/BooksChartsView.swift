@@ -71,7 +71,7 @@ struct BooksChartsView: View {
                     if let books = viewModel.booksDateDic[date] {
                         BarMark(
                             x: .value("年月", date),
-                            y: .value("冊数", selectCharts == 0 ? books.count : rootEnvironment.calcSumAmount(books: books))
+                            y: .value("冊数", selectCharts == 0 ? books.count : rootEnvironment.calcSumAmount(books: books.filter { $0.amount != -1 }))
                         ).foregroundStyle(.themaRed)
                             .annotation {
                                 if selectCharts == 0 {
@@ -85,7 +85,7 @@ struct BooksChartsView: View {
                                     }
                                 } else {
                                     let sum = rootEnvironment.calcSumAmount(books: books)
-                                    if sum != 0 {
+                                    if sum > 0 {
                                         Text("\(sum)円")
                                             .fontSSS(bold: true)
                                             .foregroundStyle(.exText)

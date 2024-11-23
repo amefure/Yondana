@@ -31,6 +31,7 @@ struct InputBookView: View {
     
     /// カテゴリ新規登録画面表示
     @State private var showCreateCategoryView: Bool = false
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -107,6 +108,11 @@ struct InputBookView: View {
                             .colorInvert()
                             .colorMultiply(.exText)
                             .tint(.exText)
+                            .if(colorScheme == .dark, apply: { view in
+                                view
+                                    .colorInvert()
+                            })
+                            
                         Spacer()
                     }
                     
