@@ -9,6 +9,7 @@ target 'StudyBookApp' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'RealmSwift'
   pod 'FirebaseAnalytics'
+  pod 'FirebaseCrashlytics'
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'ReachabilitySwift'
