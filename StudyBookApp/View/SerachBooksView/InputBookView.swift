@@ -124,8 +124,7 @@ struct InputBookView: View {
                     
                 }.padding()
                 
-                
-                Button {
+                AnimationButton(title: !forAPI ? "更新" : "登録") {
                     guard let categoryId = rootEnvironment.categorys[safe: selectCategoryIndex]?.id else { return }
                     if !forAPI {
                         guard let oldCategoryId else { return }
@@ -162,11 +161,8 @@ struct InputBookView: View {
                         isSave = true
                     }
                     dismiss()
-                } label: {
-                    Text(!forAPI ? "更新" : "登録")
-                        .roundedRectangleButtonView()
                 }
-            }
+            }.padding(.bottom)
             
         }.foregroundStyle(.exText)
             .fullScreenCover(isPresented: $showCreateCategoryView) {

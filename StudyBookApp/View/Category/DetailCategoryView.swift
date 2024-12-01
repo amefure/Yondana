@@ -128,7 +128,7 @@ struct DetailCategoryView: View {
                             .fontM()
                         Text("\(rootEnvironment.calcSumAmount(books: Array(category.books.filter { $0.amount != -1 })))円")
                             .fontL(bold: true)
-                            .roundedRectangleShadowBackView(height: 80)
+                            .roundedRectangleShadowBackView(height: 80, background: .exSchemeBg)
                     }
                 
                 

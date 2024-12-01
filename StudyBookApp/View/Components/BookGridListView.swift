@@ -10,7 +10,7 @@ import SwiftUI
 struct BookGridListView: View {
     @EnvironmentObject private var rootEnvironment: RootEnvironment
     public var category: Category? = nil
-    private let columns = Array(repeating: GridItem(.fixed(DeviceSizeUtility.deviceWidth / 4 - 20)), count: 4)
+    private let columns = Array(repeating: GridItem(.fixed(DeviceSizeUtility.deviceWidth / 4 - 15)), count: 4)
     
     private var books: [Book] {
         return category == nil ? rootEnvironment.books : Array(category!.books)
@@ -54,7 +54,7 @@ struct BookGridListView: View {
                                         .font(.caption)
                                         .foregroundColor(.gray)
                                         .padding(5)
-                                        .frame(minWidth: DeviceSizeUtility.deviceWidth / 4 - 20)
+                                        .frame(minWidth: DeviceSizeUtility.deviceWidth / 4 - 15)
                                         .frame(height: DeviceSizeUtility.isSESize ? 100 : 120)
                                         .frame(maxHeight: DeviceSizeUtility.isSESize ? 100 : 120)
                                         .background(.white)

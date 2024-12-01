@@ -81,7 +81,7 @@ struct CategoryListView: View {
                                         
                                         Spacer()
                                     }
-                                }.roundedRectangleShadowBackView(height: height * 1.5)
+                                }.roundedRectangleShadowBackView(height: height * 1.5, background: .exSchemeBg)
                             }.listRowSeparator(.hidden)
                         }
                     }.scrollContentBackground(.hidden)

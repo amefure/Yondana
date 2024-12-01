@@ -61,6 +61,8 @@
 		1252FDEA2CDA5949007D23B9 /* DetailCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDE92CDA5948007D23B9 /* DetailCategoryView.swift */; };
 		1252FDEC2CDA5AE9007D23B9 /* BookGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDEB2CDA5AE9007D23B9 /* BookGridListView.swift */; };
 		1252FDEE2CDA5BC7007D23B9 /* ExModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252FDED2CDA5BC7007D23B9 /* ExModifier.swift */; };
+		1278A8C02CFC6F92000DA119 /* AnimatedCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278A8BF2CFC6F8B000DA119 /* AnimatedCheckMarkView.swift */; };
+		1278A8C22CFC7079000DA119 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278A8C12CFC7069000DA119 /* AnimationButton.swift */; };
 		128857692CDE162500703F49 /* DetailBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128857682CDE162500703F49 /* DetailBookView.swift */; };
 		1289C4662CE605830087E637 /* AllBookDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C4652CE605830087E637 /* AllBookDataView.swift */; };
 		1289C4682CE61D130087E637 /* ItemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289C4672CE61D130087E637 /* ItemTextView.swift */; };
@@ -129,6 +131,8 @@
 		1252FDED2CDA5BC7007D23B9 /* ExModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExModifier.swift; sourceTree = "<group>"; };
 		126B41432CD66D1D00ECAE88 /* StudyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1276D96CAE976ACC5DF2DD5C /* Pods_StudyBookApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBookApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1278A8BF2CFC6F8B000DA119 /* AnimatedCheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCheckMarkView.swift; sourceTree = "<group>"; };
+		1278A8C12CFC7069000DA119 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		128857682CDE162500703F49 /* DetailBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookView.swift; sourceTree = "<group>"; };
 		1289C4652CE605830087E637 /* AllBookDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBookDataView.swift; sourceTree = "<group>"; };
 		1289C4672CE61D130087E637 /* ItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTextView.swift; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 				1230884C2CE1187500455EC8 /* CategoryLabelView.swift */,
 				1289C4672CE61D130087E637 /* ItemTextView.swift */,
 				1230885E2CE39E3200455EC8 /* AdMobView.swift */,
+				1278A8BF2CFC6F8B000DA119 /* AnimatedCheckMarkView.swift */,
+				1278A8C12CFC7069000DA119 /* AnimationButton.swift */,
 			);
 			path = UIParts;
 			sourceTree = "<group>";
@@ -604,6 +610,7 @@
 				1221ECAD2CD7588500F2A6E7 /* SearchBooksViewModel.swift in Sources */,
 				1289C48B2CEF81220087E637 /* ScanBarCodeViewModel.swift in Sources */,
 				1221EC5B2CD6749C00F2A6E7 /* DateFormatUtility.swift in Sources */,
+				1278A8C22CFC7079000DA119 /* AnimationButton.swift in Sources */,
 				123088502CE217FE00455EC8 /* CustomNotifyDialogView.swift in Sources */,
 				1252FDEA2CDA5949007D23B9 /* DetailCategoryView.swift in Sources */,
 				1252FDEC2CDA5AE9007D23B9 /* BookGridListView.swift in Sources */,
@@ -652,6 +659,7 @@
 				1221ECC72CD8AD6400F2A6E7 /* BooksChartsViewModel.swift in Sources */,
 				1221ECA62CD7368D00F2A6E7 /* RelamRepository.swift in Sources */,
 				128857692CDE162500703F49 /* DetailBookView.swift in Sources */,
+				1278A8C02CFC6F92000DA119 /* AnimatedCheckMarkView.swift in Sources */,
 				1252FDE82CDA506B007D23B9 /* ExString.swift in Sources */,
 				1221ECAB2CD7586A00F2A6E7 /* SearchBooksView.swift in Sources */,
 				129464402CDFA0AF00A30FC8 /* ErrorView.swift in Sources */,
@@ -799,7 +807,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"StudyBookApp/Preview Content\"";
 				DEVELOPMENT_TEAM = CGD79LB65H;
@@ -820,7 +828,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.StudyBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -840,7 +848,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"StudyBookApp/Preview Content\"";
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				ENABLE_PREVIEWS = YES;
@@ -860,7 +868,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.StudyBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -149,14 +149,15 @@ fileprivate struct RowBooksView: View {
                             .font(.system(size: 14))
                             .fontWeight(.bold)
                             .padding(5)
-                            .foregroundColor(isClick ? .exWhite : .exText)
+                            .foregroundColor(isClick ? .white : .exText)
                             .frame(width: 50)
-                            .background(isClick ? .exText : .clear)
+                            .background(isClick ? .themaRed : .clear)
                             .cornerRadius(8)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
                             .overlay {
                                 if !isClick {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(.exText, lineWidth: 3)
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(.exText, lineWidth: 2)
                                 }
                             }
                     }.buttonStyle(.borderless)
