@@ -10,6 +10,7 @@ import UIKit
 class SettingViewModel {
 
     /// アプリシェアロジック
+    @MainActor
     public func shareApp(shareText: String, shareLink: String) {
         let items = [shareText, URL(string: shareLink)!] as [Any]
         let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
