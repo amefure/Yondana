@@ -10,7 +10,11 @@ import SwiftyJSON
 import UIKit
 import Combine
 
-class GoogleBooksAPIRepository {
+/// スレッドセーフな設計(バックグラウンド操作のみ)のため
+/// `@unchecked Sendable`とする
+/// 外部に公開している`Combineストリーム`もバックグラウンドになるため
+/// UI操作をするなら`.receive(on: DispatchQueue.main)`を指定する
+final class GoogleBooksAPIRepository: @unchecked Sendable {
     
     /// Google Books API EndPoint
     private let endPoint: String = "https://www.googleapis.com/books/v1/volumes"
@@ -22,7 +26,7 @@ class GoogleBooksAPIRepository {
     private let apiKey: String = AppStaticKey.GOOGLE_BOOK_API_KEY
     /// キーワードクエリ
     private let query: String = "&q="
-
+    
     /// リクエストAPIURLの構築
     private func createEndPoint(keyword: String) -> String {
         let urlStr = endPoint + queryPrefix + max + apiKey + query + keyword
@@ -49,18 +53,18 @@ class GoogleBooksAPIRepository {
     private var _resultCount = PassthroughSubject<Int, Never>()
 
     /// 日本語をエンコーディング
-    private func getEncodingUrl(url: String) -> String {
-        guard let encurl = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) else { return "" }
+    private func getEncodingUrl(url: String) -> String? {
+        guard let encurl = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) else { return nil }
         return encurl
     }
 
     public func fetchBooks(keyword: String) {
         let endPoint = createEndPoint(keyword: keyword)
-        let encUrl = getEncodingUrl(url: endPoint)
+        guard let encUrl = getEncodingUrl(url: endPoint) else { return self.sendAPIError(.invalidURL) }
         
         guard AppManager.sharedNetworkConnectStatusManager.checkIsOnline() else { return self.sendAPIError(.networkConnection) }
-        
-        AF.request(encUrl).response { [weak self] response in
+        /// バックグラウンドスレッドでデータを取得する
+        AF.request(encUrl).response(queue: DispatchQueue.global(qos: .background)) { [weak self] response in
             guard let self else { return }
             do {
                 guard let data = response.data else { return self.sendAPIError(.response) }

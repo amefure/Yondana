@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchBooksView: View {
-    @ObservedObject private var viewModel = SearchBooksViewModel.shared
+    @StateObject private var viewModel = SearchBooksViewModel()
     @EnvironmentObject private var rootEnvironment: RootEnvironment
 
     @State private var keyword: String = ""

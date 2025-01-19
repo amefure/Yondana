@@ -10,8 +10,6 @@ import Combine
 
 class SearchBooksViewModel: ObservableObject {
     
-    static let shared = SearchBooksViewModel()
-    
     public let googleBooksAPIRepository: GoogleBooksAPIRepository
     
     private var cancellables = Set<AnyCancellable>()
@@ -51,6 +49,7 @@ class SearchBooksViewModel: ObservableObject {
         isSaveIds = isSaveBooks.map(\.id)
         
         googleBooksAPIRepository.books
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] books in
                 guard let self else { return }
                 /// ローカルに既に保存しているものがあれば除去する
@@ -59,6 +58,7 @@ class SearchBooksViewModel: ObservableObject {
              }).store(in: &cancellables)
         
         googleBooksAPIRepository.resultCount
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] count in
                 guard let self else { return }
                 self.resultCount = count
@@ -66,9 +66,9 @@ class SearchBooksViewModel: ObservableObject {
             }).store(in: &cancellables)
         
         googleBooksAPIRepository.error
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] error in
                 guard let self else { return }
-                print("====ERROR", error)
                 self.error = error
                 self.stopLoading()
             }).store(in: &cancellables)
