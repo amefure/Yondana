@@ -11,11 +11,13 @@ class UserDefaultsKey {
 
 }
 
-/// UserDefaultsの基底クラス
-class UserDefaultsRepository {
-    static let sheard = UserDefaultsRepository()
+/// `UserDefaults`の基底クラス
+/// マルチスレッドからの参照を考慮するためactor定義
+/// 全てのメソッドが`acync`になる
+actor UserDefaultsRepository {
 
-    private let userDefaults = UserDefaults.standard
+    /// `UserDefaults`が`Sendable`ではない
+    private let userDefaults: UserDefaults = UserDefaults.standard
 
     /// Bool：保存
     public func setBoolData(key: String, isOn: Bool) {
