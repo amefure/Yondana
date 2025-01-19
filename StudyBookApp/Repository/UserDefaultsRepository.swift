@@ -12,9 +12,9 @@ class UserDefaultsKey {
 }
 
 /// `UserDefaults`の基底クラス
-/// マルチスレッドからの参照を考慮するためactor定義
-/// 全てのメソッドが`acync`になる
-actor UserDefaultsRepository {
+/// スレッドセーフにするため `final class` + `Sendable`準拠
+/// `UserDefaults`が`Sendable`ではないがスレッドセーフのため`@unchecked`で無視しておく
+final class UserDefaultsRepository: @unchecked Sendable {
 
     /// `UserDefaults`が`Sendable`ではない
     private let userDefaults: UserDefaults = UserDefaults.standard
