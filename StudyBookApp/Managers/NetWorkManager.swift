@@ -9,7 +9,9 @@ import UIKit
 import Combine
 import Reachability
 
-class NetworkConnectStatusManager {
+/// データの競合が起こり得ないManagerクラスなので`@unchecked Sendable`で
+/// 明示的にスレッドセーフであることをコンパイラに示す
+final class NetworkConnectStatusManager: @unchecked Sendable {
     
     private var reachability: Reachability? = nil
     

@@ -10,10 +10,12 @@ import SwiftUI
 import Combine
 
 /// アプリからデバイス内(Documentsフォルダ)へ画像を保存するクラス
-class ImageFileManager {
+/// データの競合が起こり得ないManagerクラスなので`@unchecked Sendable`で
+/// 明示的にスレッドセーフであることをコンパイラに示す
+final class ImageFileManager: @unchecked Sendable {
     
-    private var fileManager = FileManager.default
-    private var suffix = ".jpg"
+    private let fileManager: FileManager = FileManager.default
+    private let suffix = ".jpg"
     
     /// Documentsフォルダまでのパスを取得
     private func fetchDocumentsUrl(_ fileName: String) -> URL? {
@@ -47,7 +49,7 @@ class ImageFileManager {
         guard !name.isEmpty else { return nil }
         guard let path = fetchDocumentsUrl("\(name + suffix)")?.path else { return nil }
         guard fileManager.fileExists(atPath: path) else { return nil }
-        guard let image = UIImage(contentsOfFile: path) else { return nil }
+        guard UIImage(contentsOfFile: path) != nil else { return nil }
         return path
     }
 

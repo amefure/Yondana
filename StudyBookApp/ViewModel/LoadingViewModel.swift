@@ -8,7 +8,8 @@ import Combine
 import SwiftUI
 
 // MARK: 順番上下ローディング
-class LoadingViewModel: ObservableObject {
+@MainActor
+final class LoadingViewModel: ObservableObject {
 
     @Published private(set) var height: Double = 0
     @Published private(set) var timerPublisher: AnyCancellable?

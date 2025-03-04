@@ -10,8 +10,9 @@ import Combine
 import RealmSwift
 
 /// アプリ内で共通で利用される状態や環境値を保持する
-class RootEnvironment: ObservableObject {
+final class RootEnvironment: ObservableObject {
     
+    @MainActor
     static let shared = RootEnvironment()
     
     private let df = DateFormatUtility()

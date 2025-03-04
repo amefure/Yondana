@@ -7,7 +7,9 @@
 
 import UIKit
 
-class DateFormatUtility {
+/// データの競合が起こり得ないUtilityクラスなので`@unchecked Sendable`で
+/// 明示的にスレッドセーフであることをコンパイラに示す
+final class DateFormatUtility: @unchecked Sendable {
     
     private let df = DateFormatter()
     private var c = Calendar(identifier: .gregorian)

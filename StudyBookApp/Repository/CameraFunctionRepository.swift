@@ -11,31 +11,35 @@ import Combine
 
 /// カメラ機能を提供するリポジトリ
 /// バーコードをスキャンする
-class CameraFunctionRepository: NSObject, AVCapturePhotoCaptureDelegate, AVCaptureMetadataOutputObjectsDelegate {
+final class CameraFunctionRepository: NSObject, AVCapturePhotoCaptureDelegate, AVCaptureMetadataOutputObjectsDelegate, Sendable {
     
+    @MainActor
     /// 読み取ったISBNコード
     public var ISBNcode: AnyPublisher<String, Never> {
         _ISBNcode.eraseToAnyPublisher()
     }
-    
+    @MainActor
     private let _ISBNcode = PassthroughSubject<String, Never>()
     
+    @MainActor
     /// カメラプレビュー領域
     public var previewLayer: AnyPublisher<CALayer, Never> {
         _previewLayer.eraseToAnyPublisher()
     }
-    
+    @MainActor
     private let _previewLayer = PassthroughSubject<CALayer, Never>()
     
+    @MainActor
     /// 撮影デバイス
     private var capturepDevice: AVCaptureDevice!
     
-    private var avSession: AVCaptureSession = AVCaptureSession()
-    private var avInput: AVCaptureDeviceInput!
+    nonisolated(unsafe) private var avSession: AVCaptureSession = AVCaptureSession()
+    nonisolated(unsafe) private var avInput: AVCaptureDeviceInput!
 }
 
 extension CameraFunctionRepository {
     
+    @MainActor
     ///  初期準備
     public func prepareSetting() {
         setUpDevice()
@@ -60,6 +64,7 @@ extension CameraFunctionRepository {
 
 extension CameraFunctionRepository {
     
+    @MainActor
     // 使用するデバイスを取得
     private func setUpDevice() {
         avSession.sessionPreset = .photo
@@ -95,25 +100,26 @@ extension CameraFunctionRepository {
                     let width: CGFloat = 0.8
                     let height: CGFloat = 0.2
                     metadataOutput.rectOfInterest = CGRect(x: y, y: 1 - x - width, width: height, height: width)
-                    
-                    // 読取エリアを可視化
-                    let readingArea = CALayer()
-                    readingArea.frame = CGRect(
-                        x: DeviceSizeUtility.deviceWidth * x,
-                        y: DeviceSizeUtility.deviceHeight * y,
-                        width: DeviceSizeUtility.deviceWidth * width,
-                        height: DeviceSizeUtility.deviceHeight * height
-                    )
-                    readingArea.borderWidth = 1
-                    readingArea.cornerRadius = 5
-                    readingArea.borderColor = UIColor.white.cgColor
-                    
-                    let previewLayer = AVCaptureVideoPreviewLayer(session: self.avSession)
-                    previewLayer.videoGravity = .resize
-                    previewLayer.addSublayer(readingArea)
-                    self._previewLayer.send(previewLayer)
-                    
-                    self.avSession.sessionPreset = AVCaptureSession.Preset.photo
+                    DispatchQueue.main.async {
+                        // 読取エリアを可視化
+                        let readingArea = CALayer()
+                        readingArea.frame = CGRect(
+                            x: DeviceSizeUtility.deviceWidth * x,
+                            y: DeviceSizeUtility.deviceHeight * y,
+                            width: DeviceSizeUtility.deviceWidth * width,
+                            height: DeviceSizeUtility.deviceHeight * height
+                        )
+                        readingArea.borderWidth = 1
+                        readingArea.cornerRadius = 5
+                        readingArea.borderColor = UIColor.white.cgColor
+                        
+                        let previewLayer = AVCaptureVideoPreviewLayer(session: self.avSession)
+                        previewLayer.videoGravity = .resize
+                        previewLayer.addSublayer(readingArea)
+                        self._previewLayer.send(previewLayer)
+                        
+                        self.avSession.sessionPreset = AVCaptureSession.Preset.photo
+                    }
                 }
             }
         } catch {

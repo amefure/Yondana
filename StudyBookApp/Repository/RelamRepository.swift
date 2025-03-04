@@ -8,7 +8,9 @@
 import RealmSwift
 import UIKit
 
-class RealmRepository {
+/// データの競合が起こり得ないRepositoryクラスなので`@unchecked Sendable`で
+/// 明示的にスレッドセーフであることをコンパイラに示す
+final class RealmRepository: @unchecked Sendable {
     
     init() {
         let config = Realm.Configuration(schemaVersion: RealmConfig.MIGRATION_VERSION)

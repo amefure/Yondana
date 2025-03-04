@@ -55,8 +55,8 @@ struct CustomPopUpDialogView: View {
                             Image(systemName: "xmark")
                                 .fontL(bold: true)
                                 .foregroundStyle(.white)
-                                .offset(x: (DeviceSizeUtility.deviceWidth / 2) - 40, y: -DeviceSizeUtility.deviceHeight / 4.5)
-                        }
+                            // ここでoffsetしてしまうとタップ位置はそのままにViewだけズレるので注意
+                        }.offset(x: (DeviceSizeUtility.deviceWidth / 2) - 40, y: -DeviceSizeUtility.deviceHeight / 4.5)
                        
                     }
                 // 画面一杯にViewを広げる

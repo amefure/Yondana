@@ -24,6 +24,7 @@ class ScanBarCodeViewModel: ObservableObject {
         cameraRepository = repositoryDependency.cameraFunctionRepository
     }
     
+    @MainActor
     public func onAppear() {
         cameraRepository.ISBNcode.sink { [weak self] image in
             guard let self else { return }
